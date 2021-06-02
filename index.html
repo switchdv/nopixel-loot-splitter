@@ -1,0 +1,707 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>NoPixel Loot Splitter</title>
+    <link rel="apple-touch-icon" sizes="any" href="favicon.svg" />
+    <link rel="shortcut icon" sizes="any" href="favicon.svg" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css"
+      integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="css/index.css" />
+    <link rel="stylesheet" href="css/utils.css" />
+    <link rel="stylesheet" href="css/docs.css" />
+    <script
+      type="text/javascript"
+      id="MathJax-script"
+      async
+      src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/mml-chtml.js"
+    ></script>
+  </head>
+  <body class="d-flex flex-column h-100 site-body">
+    <header
+      class="
+        container-fluid
+        d-flex
+        flex-wrap
+        align-items-center
+        justify-content-center justify-content-md-between
+        py-3
+      "
+    >
+      <a
+        href="/nopixel-loot-splitter"
+        id="indexLink"
+        class="
+          d-flex
+          align-items-center
+          col-md-3
+          mb-2 mb-md-0
+          text-decoration-none
+        "
+        tabindex="-1"
+      >
+        <span class="fs-4">NoPixel Loot Splitter</span>
+      </a>
+
+      <ul
+        class="
+          nav nav-pills
+          col-12 col-md-auto
+          mb-2
+          justify-content-center
+          mb-md-0
+        "
+      >
+        <li class="nav-item">
+          <div id="homeNav" class="nav-link" tabindex="0">Split</div>
+        </li>
+        <li class="nav-item">
+          <div
+            id="infoNav"
+            class="nav-link active"
+            tabindex="0"
+            aria-current="page"
+          >
+            Details
+          </div>
+        </li>
+      </ul>
+      <div class="col-md-3 text-end">
+        <span hidden>
+          Do not remove this! Used to position navbar to the middle of the
+          header.
+        </span>
+      </div>
+    </header>
+    <main class="container site-content px-4 py-4">
+      <div id="home" class="content-page" hidden>
+        <nav id="breadcrumb-nav" aria-label="breadcrumb">
+          <ol class="breadcrumb">
+            <li class="breadcrumb-item active" aria-current="page">
+              Bank Heist
+            </li>
+            <li class="breadcrumb-item"><a href="#">Other</a></li>
+          </ol>
+        </nav>
+        <div class="input-content">
+          <div class="row">
+            <div class="col-sm-6 mb-4">
+              <div class="card">
+                <div class="card-header">Number of heist members</div>
+                <div class="card-body">
+                  <div class="form-check form-check-inline">
+                    <input
+                      class="form-check-input"
+                      type="radio"
+                      name="firstParam"
+                      id="firstParam2"
+                      value="2"
+                    />
+                    <label class="form-check-label" for="firstParam2"
+                      >2 people</label
+                    >
+                  </div>
+                  <div class="form-check form-check-inline">
+                    <input
+                      class="form-check-input"
+                      type="radio"
+                      name="firstParam"
+                      id="firstParam3"
+                      value="3"
+                    />
+                    <label class="form-check-label" for="firstParam3"
+                      >3 people</label
+                    >
+                  </div>
+                  <div class="form-check form-check-inline">
+                    <input
+                      class="form-check-input"
+                      type="radio"
+                      name="firstParam"
+                      id="firstParam4"
+                      value="4"
+                      checked
+                    />
+                    <label class="form-check-label" for="firstParam4"
+                      >4 people</label
+                    >
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-6 mb-4">
+              <div class="card">
+                <div class="card-header">Bank class</div>
+                <div class="card-body">
+                  <div class="form-check form-check-inline">
+                    <input
+                      class="form-check-input"
+                      type="radio"
+                      name="secondParam"
+                      id="secondParam1"
+                      value="1"
+                      checked
+                    />
+                    <label
+                      class="form-check-label text-success"
+                      for="secondParam1"
+                      >Fleeca</label
+                    >
+                  </div>
+                  <div class="form-check form-check-inline">
+                    <input
+                      class="form-check-input"
+                      type="radio"
+                      name="secondParam"
+                      id="secondParam2"
+                      value="2"
+                    />
+                    <label
+                      class="form-check-label text-primary"
+                      for="secondParam2"
+                      >Paleto</label
+                    >
+                  </div>
+                  <div class="form-check form-check-inline">
+                    <input
+                      class="form-check-input"
+                      type="radio"
+                      name="secondParam"
+                      id="secondParam3"
+                      value="3"
+                    />
+                    <label
+                      class="form-check-label text-danger"
+                      for="secondParam3"
+                      >City Vault</label
+                    >
+                  </div>
+                  <span class="inv">
+                    Shungites:
+                    <span class="inv-price" id="shungite">100</span>
+                    <span class="ms-2" id="thermite" hidden
+                      >Thermites: <span style="color: #00f8b9"> 3</span></span
+                    >
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-6 mb-4">
+              <div class="card">
+                <div class="card-header">Investment</div>
+                <div class="card-body d-flex">
+                  <div class="row row-cols-2 mb-3">
+                    <div class="col-sm-3">
+                      <div class="form-check">
+                        <label for="thirdParam1" class="form-check-label"
+                          >Default</label
+                        >
+                        <input
+                          type="radio"
+                          class="form-check-input"
+                          name="thirdParam"
+                          id="thirdParam1"
+                          value="0"
+                          checked
+                        />
+                        <svg
+                          id="default-inv-popover"
+                          data-bs-toggle="popover"
+                          xmlns="http://www.w3.org/2000/svg"
+                          width="14"
+                          height="14"
+                          fill="#adb5bd"
+                          class="bi bi-exclamation-circle svg-tip"
+                          viewBox="0 0 16 16"
+                        >
+                          <path
+                            d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"
+                          />
+                          <path
+                            d="M7.002 11a1 1 0 1 1 2 0 1 1 0 0 1-2 0zM7.1 4.995a.905.905 0 1 1 1.8 0l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 4.995z"
+                          />
+                        </svg>
+                      </div>
+                    </div>
+                    <div class="col-sm-3">
+                      <div class="form-check">
+                        <label for="thirdParam2" class="form-check-label"
+                          >Custom</label
+                        >
+                        <input
+                          type="radio"
+                          class="form-check-input"
+                          name="thirdParam"
+                          id="thirdParam2"
+                          value="1"
+                        />
+                        <svg
+                          id="custom-inv-popover"
+                          data-bs-toggle="popover"
+                          xmlns="http://www.w3.org/2000/svg"
+                          width="14"
+                          height="14"
+                          fill="#adb5bd"
+                          class="bi bi-exclamation-circle svg-tip"
+                          viewBox="0 0 16 16"
+                        >
+                          <path
+                            d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"
+                          />
+                          <path
+                            d="M7.002 11a1 1 0 1 1 2 0 1 1 0 0 1-2 0zM7.1 4.995a.905.905 0 1 1 1.8 0l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 4.995z"
+                          />
+                        </svg>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row row-cols-2 mb-2">
+                    <label
+                      for="fourthParam1"
+                      class="col-sm-3 col-form-label text-muted"
+                      name="fourthParamLabel"
+                      >Member 1</label
+                    >
+                    <div class="col-sm-9">
+                      <div class="input-group">
+                        <span class="input-group-text">$</span>
+                        <input
+                          type="text"
+                          class="form-control"
+                          name="fourthParam"
+                          id="fourthParam1"
+                          placeholder="2500"
+                          val="0"
+                          disabled
+                        />
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row row-cols-2 mb-2">
+                    <label
+                      for="fourthParam2"
+                      class="col-sm-3 col-form-label text-muted"
+                      name="fourthParamLabel"
+                      >Member 2</label
+                    >
+                    <div class="col-sm-9">
+                      <div class="input-group">
+                        <span class="input-group-text">$</span>
+                        <input
+                          type="text"
+                          class="form-control"
+                          name="fourthParam"
+                          id="fourthParam2"
+                          placeholder="2500"
+                          val="0"
+                          disabled
+                        />
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row row-cols-2 mb-2">
+                    <label
+                      for="fourthParam3"
+                      class="col-sm-3 col-form-label text-muted"
+                      name="fourthParamLabel"
+                      >Member 3</label
+                    >
+                    <div class="col-sm-9">
+                      <div class="input-group">
+                        <span class="input-group-text">$</span>
+                        <input
+                          type="text"
+                          class="form-control"
+                          name="fourthParam"
+                          id="fourthParam3"
+                          placeholder="2500"
+                          val="0"
+                          disabled
+                        />
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row row-cols-2 mb-4">
+                    <label
+                      for="fourthParam4"
+                      class="col-sm-3 col-form-label text-muted"
+                      name="fourthParamLabel"
+                      >Member 4</label
+                    >
+                    <div class="col-sm-9">
+                      <div class="input-group">
+                        <span class="input-group-text">$</span>
+                        <input
+                          type="text"
+                          class="form-control"
+                          name="fourthParam"
+                          id="fourthParam4"
+                          placeholder="2500"
+                          val="0"
+                          disabled
+                        />
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row push-bottom"></div>
+                  <div class="row">
+                    <div class="col total-price">
+                      <span class="total-price-label"> Total: $</span
+                      ><span id="invTotal">10000</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-6 mb-4">
+              <div class="card">
+                <div class="card-header">Loot Payout</div>
+                <div class="card-body d-flex">
+                  <div class="row row-cols-2 mb-2">
+                    <label for="fifthParam1" class="col-sm-3 col-form-label"
+                      >Marked bills</label
+                    >
+                    <div class="col-sm-9">
+                      <div class="input-group">
+                        <input
+                          type="text"
+                          class="form-control"
+                          name="fifthParam"
+                          id="fifthParam1"
+                          placeholder="0"
+                          val="0"
+                          required
+                        />
+                        <span class="input-group-text fw-normal">bag(s)</span>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row row-cols-2 mb-2">
+                    <label for="fifthParam2" class="col-sm-3 col-form-label"
+                      >Inked bills</label
+                    >
+                    <div class="col-sm-9">
+                      <div class="input-group">
+                        <input
+                          type="text"
+                          class="form-control"
+                          name="fifthParam"
+                          id="fifthParam2"
+                          placeholder="0"
+                          val="0"
+                          required
+                        />
+                        <span class="input-group-text fw-normal">bag(s)</span>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row row-cols-2 mb-2">
+                    <label for="fifthParam3" class="col-sm-3 col-form-label"
+                      >Cash</label
+                    >
+                    <div class="col-sm-9">
+                      <div class="input-group">
+                        <span class="input-group-text">$</span>
+                        <input
+                          type="text"
+                          class="form-control"
+                          name="fifthParam"
+                          id="fifthParam3"
+                          placeholder="0"
+                          val="0"
+                          required
+                        />
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row row-cols-2 mb-4">
+                    <label for="fifthParam4" class="col-sm-3 col-form-label"
+                      >Others
+                    </label>
+                    <div class="col-sm-9">
+                      <div class="input-group">
+                        <span class="input-group-text">$</span>
+                        <input
+                          type="text"
+                          class="form-control form-control-with-tip fc-lc"
+                          name="fifthParam"
+                          id="fifthParam4"
+                          placeholder="0"
+                          val="0"
+                          required
+                        />
+                        <span class="input-group-help-tip" id="fifthParam4Tip">
+                          <svg
+                            id="other-payout-popover"
+                            data-bs-toggle="popover"
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="14"
+                            height="14"
+                            fill="#adb5bd"
+                            class="bi bi-question-circle svg-tip"
+                            viewBox="0 0 16 16"
+                          >
+                            <path
+                              d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"
+                            />
+                            <path
+                              d="M5.255 5.786a.237.237 0 0 0 .241.247h.825c.138 0 .248-.113.266-.25.09-.656.54-1.134 1.342-1.134.686 0 1.314.343 1.314 1.168 0 .635-.374.927-.965 1.371-.673.489-1.206 1.06-1.168 1.987l.003.217a.25.25 0 0 0 .25.246h.811a.25.25 0 0 0 .25-.25v-.105c0-.718.273-.927 1.01-1.486.609-.463 1.244-.977 1.244-2.056 0-1.511-1.276-2.241-2.673-2.241-1.267 0-2.655.59-2.75 2.286zm1.557 5.763c0 .533.425.927 1.01.927.609 0 1.028-.394 1.028-.927 0-.552-.42-.94-1.029-.94-.584 0-1.009.388-1.009.94z"
+                            />
+                          </svg>
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row push-bottom"></div>
+                  <div class="row">
+                    <div class="col total-price">
+                      <span class="total-price-label"> Total: $</span
+                      ><span id="payoutTotal">0</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="button-area">
+          <button
+            type="button"
+            class="btn btn-primary split-button mx-auto px-4 fw-bold"
+            id="splitButton"
+            onclick="location.href='#cutTable';"
+          >
+            Split!
+          </button>
+        </div>
+        <div class="output-content table-responsive">
+          <table class="table mt-4" id="cutTable" hidden>
+            <thead>
+              <tr>
+                <th
+                  scope="col"
+                  class="table-dark member-cut member-1-prop"
+                  hidden
+                >
+                  Member 1
+                </th>
+                <th
+                  scope="col"
+                  class="table-dark member-cut member-2-prop"
+                  hidden
+                >
+                  Member 2
+                </th>
+                <th
+                  scope="col"
+                  class="table-dark member-cut member-3-prop"
+                  hidden
+                >
+                  Member 3
+                </th>
+                <th
+                  scope="col"
+                  class="table-dark member-cut member-4-prop"
+                  hidden
+                >
+                  Member 4
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="table-light member-cut member-1-prop" hidden>
+                  <span class="fw-bold" id="member-1-mb">0</span>
+                  marked bills
+                </td>
+                <td class="table-light member-cut member-2-prop" hidden>
+                  <span class="fw-bold" id="member-2-mb">0</span>
+                  marked bills
+                </td>
+                <td class="table-light member-cut member-3-prop" hidden>
+                  <span class="fw-bold" id="member-3-mb">0</span>
+                  marked bills
+                </td>
+                <td class="table-light member-cut member-4-prop" hidden>
+                  <span class="fw-bold" id="member-4-mb">0</span>
+                  marked bills
+                </td>
+              </tr>
+              <tr>
+                <td class="table-light member-cut member-1-prop" hidden>
+                  <span class="fw-bold" id="member-1-ib">0</span>
+                  inked bills
+                </td>
+                <td class="table-light member-cut member-2-prop" hidden>
+                  <span class="fw-bold" id="member-2-ib">0</span>
+                  inked bills
+                </td>
+                <td class="table-light member-cut member-3-prop" hidden>
+                  <span class="fw-bold" id="member-3-ib">0</span>
+                  inked bills
+                </td>
+                <td class="table-light member-cut member-4-prop" hidden>
+                  <span class="fw-bold" id="member-4-ib">0</span>
+                  inked bills
+                </td>
+              </tr>
+              <tr>
+                <td class="table-light member-cut member-1-prop" hidden>
+                  Cash: $<span class="fw-bold" id="member-1-c">0</span>
+                </td>
+                <td class="table-light member-cut member-2-prop" hidden>
+                  Cash: $<span class="fw-bold" id="member-2-c">0</span>
+                </td>
+                <td class="table-light member-cut member-3-prop" hidden>
+                  Cash: $<span class="fw-bold" id="member-3-c">0</span>
+                </td>
+                <td class="table-light member-cut member-4-prop" hidden>
+                  Cash: $<span class="fw-bold" id="member-4-c">0</span>
+                </td>
+              </tr>
+              <tr>
+                <td class="table-dark member-cut member-1-prop" hidden>
+                  Profit: $<span id="member-1-p">0</span>
+                </td>
+                <td class="table-dark member-cut member-2-prop" hidden>
+                  Profit: $<span id="member-2-p">0</span>
+                </td>
+                <td class="table-dark member-cut member-3-prop" hidden>
+                  Profit: $<span id="member-3-p">0</span>
+                </td>
+                <td class="table-dark member-cut member-4-prop" hidden>
+                  Profit: $<span id="member-4-p">0</span>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div id="info" class="content-page">
+        <h3 class="display-7 mb-4">Some facts about...</h3>
+        <div class="accordion mb-4" id="faqs-1">
+          <div class="accordion-item">
+            <h2 class="accordion-header" id="faqs-1-h-1">
+              <button
+                class="accordion-button fw-bold"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#faqs-1-b-1"
+                aria-expanded="true"
+                aria-controls="faqs-1-b-1"
+              >
+                ...the split
+              </button>
+            </h2>
+            <div
+              id="faqs-1-b-1"
+              class="accordion-collapse collapse show"
+              aria-labelledby="faqs-1-h-1"
+            >
+              <div
+                class="accordion-body"
+                xmlns="http://www.w3.org/1998/Math/MathML"
+              >
+                <p>
+                  Choosing the <strong>Default</strong> option on investment
+                  type means you're using some very simple math to split the
+                  loot. Basically, with this option each member pays the same
+                  price (group purchase) and receives equal cuts. The
+                  corresponding math can be seen in the
+                  <strong>default calculation</strong> section.
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="accordion-item">
+            <h2 class="accordion-header" id="faqs-1-h-2">
+              <button
+                class="accordion-button fw-bold"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#faqs-1-b-2"
+                aria-expanded="true"
+                aria-controls="faqs-1-b-2"
+              >
+                ...the default calculation
+              </button>
+            </h2>
+            <div
+              id="faqs-1-b-2"
+              class="accordion-collapse collapse show"
+              aria-labelledby="faqs-1-h-2"
+            >
+              <div
+                class="accordion-body"
+                xmlns="http://www.w3.org/1998/Math/MathML"
+              >
+                <p>
+                  The underlying math is very simple. The cut received by
+                  <img
+                    class="sym-svg"
+                    src="static/symbols/sym1.svg"
+                    alt="i"
+                  />-th member is calculated as:
+                </p>
+                <p class="text-center">
+                  <img
+                    class="eqs-svg"
+                    src="static/eqs/eq1.svg"
+                    alt="cut equals payout per n"
+                  />
+                </p>
+                <p>
+                  where
+                  <img class="sym-svg" src="static/symbols/sym2.svg" alt="n" />
+                  is number of members. Each member pays the same amount, thus
+                  there are no cases of uneven payouts.
+                </p>
+                <p>
+                  <em>Example</em>: If you hit a Fleeca bank and the payout you
+                  received is 213 marked bills, then just divide 213 by how many
+                  members are in the group. If there are 3 members, each would
+                  receive 71 bags since 213 divided by 3 is 71. Simple.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <h3 class="display-7 mb-4">Details</h3>
+        <div class="accordion mb-4" id="faqs-2"></div>
+      </div>
+    </main>
+    <footer id="bootstrap-overrides" class="footer py-3">
+      <div class="container-fluid text-center">
+        <div class="row mb-2">
+          <span class="col">Created by Switch</span>
+        </div>
+        <div class="row">
+          <span class="col">
+            <a
+              target="_blank"
+              href="https://github.com/switchdv/nopixel-loot-splitter"
+              >GitHub</a
+            >
+            |
+            <a target="_blank" href="https://twitch.tv/switchdv">Twitch</a>
+          </span>
+        </div>
+      </div>
+    </footer>
+  </body>
+  <script
+    src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4"
+    crossorigin="anonymous"
+  ></script>
+  <script src="js/index.js"></script>
+  <script src="js/utils.js"></script>
+</html>
