@@ -306,6 +306,11 @@ const showMemberCut = (cuts) => {
       cuts[member].cash
     );
 
+    const tId = "member-" + (i + 1) + "-t";
+    document.getElementById(tId).innerHTML = numberWithCommas(
+      convertMemberPayoutToCash(cuts[member])
+    );
+
     const pId = "member-" + (i + 1) + "-p";
     var memberInv = getTotalInvestment() / numOfMembers;
     if (memberInvList[i] !== undefined) {
@@ -328,6 +333,7 @@ const splitLoot = () => {
   var pInkedBags = payout.inkedBags;
   var pCash = payout.cash + payout.others;
   const cuts = {};
+
   for (let i = 0; i < n; i++) {
     const member = "member" + (i + 1);
     cuts[member] = {};
