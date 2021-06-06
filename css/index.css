@@ -331,6 +331,11 @@ tbody > tr:last-child > td {
   color: white;
 }
 
+tr > td.result-separate {
+  border-top-style: dashed;
+  border-top-width: 1px;
+}
+
 footer#bootstrap-overrides {
   color: white;
 }
