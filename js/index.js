@@ -500,39 +500,3 @@ splitButton.addEventListener("click", () => {
   const cuts = splitLoot();
   showMemberCut(cuts);
 });
-
-document.querySelectorAll("img.eqs-svg, img.sym-svg").forEach(async (img) => {
-  const imgId = img.id;
-  const imgClass = img.className;
-  const imgUrl = img.src;
-
-  var res = await fetch(imgUrl);
-  var text = await res.text();
-
-  var parser = new DOMParser();
-  var xmlDoc = parser.parseFromString(text, "text/xml");
-  var svg = xmlDoc.getElementsByTagName("svg")[0];
-
-  if (imgId !== "") {
-    svg.setAttribute("id", imgId);
-  }
-
-  if (typeof imgClass !== "undefined") {
-    svg.setAttribute("class", imgClass + " replaced-svg");
-  }
-
-  svg.removeAttribute("xmlns:a");
-
-  if (
-    !svg.getAttribute("viewBox") &&
-    svg.getAttribute("height") &&
-    svg.getAttribute("width")
-  ) {
-    svg.setAttribute(
-      "viewBox",
-      "0 0 " + svg.getAttribute("height") + " " + svg.getAttribute("width")
-    );
-  }
-
-  img.parentNode.replaceChild(svg, img);
-});
