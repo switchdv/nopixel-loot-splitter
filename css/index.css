@@ -32,6 +32,10 @@ footer {
   color: #185adb !important;
 }
 
+.text-secondary {
+  color: #fff !important;
+}
+
 .text-danger {
   color: #ba135d !important;
 }

@@ -1,3 +1,11 @@
+.content-page > h3:not(:last-child) {
+  margin-bottom: 1.5rem;
+}
+
+.accordion:not(:last-child) {
+  margin-bottom: 3.5rem;
+}
+
 .accordion-item {
   border-color: #06101f;
   border-width: 2px;
@@ -15,12 +23,11 @@
 
 .accordion > .accordion-item {
   background-color: #06101f;
+  border-radius: 0.25rem;
 }
 
-.accordion-item:first-of-type .accordion-button,
-.accordion-item:last-of-type .accordion-button,
-.accordion-item:last-of-type .accordion-button.collapsed {
-  border-radius: 0px 0px 0px 0px;
+.accordion-item:not(:last-child) {
+  margin-bottom: 0.5rem;
 }
 
 .accordion-button:focus {
@@ -55,14 +62,37 @@
   margin-bottom: 0.25rem;
 }
 
-.accordion-item:not(:last-child) {
+.accordion-body > .list-group > .list-group-item {
+  color: inherit;
+  background-color: inherit;
+  padding: 0px;
+  border: none;
+}
+
+.accordion-body > .list-group > .list-group-item:not(:last-child) {
+  margin-bottom: 1.5rem;
+}
+
+.accordion-body > .table {
+  margin-left: auto;
+  margin-right: auto;
+  width: 400px;
+}
+
+.list-subtitle {
   margin-bottom: 0.5rem;
 }
 
-svg.eqs-svg.replaced-svg {
-  fill: #fff;
+.list-subtitle ~ p {
+  margin-bottom: 0.25rem;
 }
 
-svg.sym-svg.replaced-svg {
-  fill: #fff;
+.disclaimer-body {
+  color: #fff;
+}
+
+@media (max-width: 510px) {
+  .accordion-body > .table {
+    width: 100%;
+  }
 }

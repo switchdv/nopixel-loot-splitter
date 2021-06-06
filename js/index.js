@@ -147,7 +147,8 @@ const validateRequiredInputs = (inputElementList) => {
   var isValid = true;
 
   for (let i = 0; i < inputElementList.length; i++) {
-    if (inputElementList[i].value === "") {
+    const val = inputElementList[i].value;
+    if (isNaN(val) || val === "") {
       isValid = false;
       addClassToInputGroup(inputElementList[i], "not-valid");
     }
@@ -204,6 +205,10 @@ const getBankClass = () => {
   return bankClass;
 };
 
+const numberWithCommas = (num) => {
+  return num.toString().replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ",");
+};
+
 const convertMarkedBillToCash = (bags) => {
   return bags * 250;
 };
@@ -258,15 +263,19 @@ const getTotalPayout = () => {
 };
 
 const showTotalInvestment = () => {
-  document.getElementById("invTotal").innerHTML = getTotalInvestment();
+  document.getElementById("invTotal").innerHTML = numberWithCommas(
+    getTotalInvestment()
+  );
 };
 
 const showTotalPayout = () => {
-  document.getElementById("payoutTotal").innerHTML = getTotalPayout();
+  document.getElementById("payoutTotal").innerHTML = numberWithCommas(
+    getTotalPayout()
+  );
 };
 
 const showMemberCut = (cuts) => {
-  document.getElementById("cutTable").removeAttribute("hidden");
+  document.getElementById("result").removeAttribute("hidden");
 
   const memberCutList = document.querySelectorAll(".member-cut");
   memberCutList.forEach((memberEl) => {
@@ -283,21 +292,28 @@ const showMemberCut = (cuts) => {
     const member = "member" + (i + 1);
 
     const mbId = "member-" + (i + 1) + "-mb";
-    document.getElementById(mbId).innerHTML = cuts[member].markedBags;
+    document.getElementById(mbId).innerHTML = numberWithCommas(
+      cuts[member].markedBags
+    );
 
     const ibId = "member-" + (i + 1) + "-ib";
-    document.getElementById(ibId).innerHTML = cuts[member].inkedBags;
+    document.getElementById(ibId).innerHTML = numberWithCommas(
+      cuts[member].inkedBags
+    );
 
     const cId = "member-" + (i + 1) + "-c";
-    document.getElementById(cId).innerHTML = cuts[member].cash;
+    document.getElementById(cId).innerHTML = numberWithCommas(
+      cuts[member].cash
+    );
 
     const pId = "member-" + (i + 1) + "-p";
     var memberInv = getTotalInvestment() / numOfMembers;
     if (memberInvList[i] !== undefined) {
       memberInv = memberInvList[i];
     }
-    document.getElementById(pId).innerHTML =
-      convertMemberPayoutToCash(cuts[member]) - memberInv;
+    document.getElementById(pId).innerHTML = numberWithCommas(
+      convertMemberPayoutToCash(cuts[member]) - memberInv
+    );
   }
 };
 
@@ -342,6 +358,8 @@ const splitLoot = () => {
     }
     cuts[member].markedBags += bags;
     cuts[member].cash -= convertMarkedBillToCash(bags);
+    cuts[member].cash =
+      Math.round((cuts[member].cash + Number.EPSILON) * 100) / 100;
     pMarkedBags -= bags;
   }
 
@@ -382,7 +400,7 @@ numOfMembersOptions.forEach((option) => {
 bankClassOptions.forEach((bankClass) => {
   bankClass.addEventListener("change", () => {
     if (bankClass.checked) {
-      shungiteElement.innerHTML = getShungitePoints();
+      shungiteElement.innerHTML = numberWithCommas(getShungitePoints());
       if (bankClass.value === "3") {
         document.getElementById("thermite").removeAttribute("hidden");
       } else {

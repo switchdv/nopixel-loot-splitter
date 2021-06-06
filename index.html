@@ -59,17 +59,17 @@
         "
       >
         <li class="nav-item">
-          <div id="homeNav" class="nav-link" tabindex="0">Split</div>
-        </li>
-        <li class="nav-item">
           <div
-            id="infoNav"
+            id="homeNav"
             class="nav-link active"
             tabindex="0"
             aria-current="page"
           >
-            Details
+            Split
           </div>
+        </li>
+        <li class="nav-item">
+          <div id="infoNav" class="nav-link" tabindex="0">Details</div>
         </li>
       </ul>
       <div class="col-md-3 text-end">
@@ -80,7 +80,7 @@
       </div>
     </header>
     <main class="container site-content px-4 py-4">
-      <div id="home" class="content-page" hidden>
+      <div id="home" class="content-page">
         <nav id="breadcrumb-nav" aria-label="breadcrumb">
           <ol class="breadcrumb">
             <li class="breadcrumb-item active" aria-current="page">
@@ -210,7 +210,6 @@
                           name="thirdParam"
                           id="thirdParam1"
                           value="0"
-                          checked
                         />
                         <svg
                           id="default-inv-popover"
@@ -242,6 +241,7 @@
                           name="thirdParam"
                           id="thirdParam2"
                           value="1"
+                          checked
                         />
                         <svg
                           id="custom-inv-popover"
@@ -266,7 +266,7 @@
                   <div class="row row-cols-2 mb-2">
                     <label
                       for="fourthParam1"
-                      class="col-sm-3 col-form-label text-muted"
+                      class="col-sm-3 col-form-label"
                       name="fourthParamLabel"
                       >Member 1</label
                     >
@@ -280,7 +280,7 @@
                           id="fourthParam1"
                           placeholder="2500"
                           val="0"
-                          disabled
+                          required
                         />
                       </div>
                     </div>
@@ -288,7 +288,7 @@
                   <div class="row row-cols-2 mb-2">
                     <label
                       for="fourthParam2"
-                      class="col-sm-3 col-form-label text-muted"
+                      class="col-sm-3 col-form-label"
                       name="fourthParamLabel"
                       >Member 2</label
                     >
@@ -302,7 +302,7 @@
                           id="fourthParam2"
                           placeholder="2500"
                           val="0"
-                          disabled
+                          required
                         />
                       </div>
                     </div>
@@ -310,7 +310,7 @@
                   <div class="row row-cols-2 mb-2">
                     <label
                       for="fourthParam3"
-                      class="col-sm-3 col-form-label text-muted"
+                      class="col-sm-3 col-form-label"
                       name="fourthParamLabel"
                       >Member 3</label
                     >
@@ -324,7 +324,7 @@
                           id="fourthParam3"
                           placeholder="2500"
                           val="0"
-                          disabled
+                          required
                         />
                       </div>
                     </div>
@@ -332,7 +332,7 @@
                   <div class="row row-cols-2 mb-4">
                     <label
                       for="fourthParam4"
-                      class="col-sm-3 col-form-label text-muted"
+                      class="col-sm-3 col-form-label"
                       name="fourthParamLabel"
                       >Member 4</label
                     >
@@ -346,7 +346,7 @@
                           id="fourthParam4"
                           placeholder="2500"
                           val="0"
-                          disabled
+                          required
                         />
                       </div>
                     </div>
@@ -355,7 +355,7 @@
                   <div class="row">
                     <div class="col total-price">
                       <span class="total-price-label"> Total: $</span
-                      ><span id="invTotal">10000</span>
+                      ><span id="invTotal">0</span>
                     </div>
                   </div>
                 </div>
@@ -363,7 +363,7 @@
             </div>
             <div class="col-sm-6 mb-4">
               <div class="card">
-                <div class="card-header">Loot Payout</div>
+                <div class="card-header">Loot payout</div>
                 <div class="card-body d-flex">
                   <div class="row row-cols-2 mb-2">
                     <label for="fifthParam1" class="col-sm-3 col-form-label"
@@ -477,13 +477,13 @@
             type="button"
             class="btn btn-primary split-button mx-auto px-4 fw-bold"
             id="splitButton"
-            onclick="location.href='#cutTable';"
+            onclick="location.href='#result';"
           >
             Split!
           </button>
         </div>
         <div class="output-content table-responsive">
-          <table class="table mt-4" id="cutTable" hidden>
+          <table class="table mt-4" id="result" hidden>
             <thead>
               <tr>
                 <th
@@ -585,103 +585,528 @@
           </table>
         </div>
       </div>
-      <div id="info" class="content-page">
-        <h3 class="display-7 mb-4">Some facts about...</h3>
-        <div class="accordion mb-4" id="faqs-1">
+      <div id="info" class="content-page" hidden>
+        <h3 class="display-7">Use examples</h3>
+        <div class="accordion" id="faqs-1">
           <div class="accordion-item">
             <h2 class="accordion-header" id="faqs-1-h-1">
               <button
-                class="accordion-button fw-bold"
+                class="accordion-button fw-bold collapsed"
                 type="button"
                 data-bs-toggle="collapse"
                 data-bs-target="#faqs-1-b-1"
-                aria-expanded="true"
+                aria-expanded="false"
                 aria-controls="faqs-1-b-1"
               >
-                ...the split
+                Example 1: Investment paid by 1 member
               </button>
             </h2>
             <div
+              class="accordion-collapse collapse"
               id="faqs-1-b-1"
-              class="accordion-collapse collapse show"
               aria-labelledby="faqs-1-h-1"
             >
-              <div
-                class="accordion-body"
-                xmlns="http://www.w3.org/1998/Math/MathML"
-              >
-                <p>
-                  Choosing the <strong>Default</strong> option on investment
-                  type means you're using some very simple math to split the
-                  loot. Basically, with this option each member pays the same
-                  price (group purchase) and receives equal cuts. The
-                  corresponding math can be seen in the
-                  <strong>default calculation</strong> section.
-                </p>
+              <div class="accordion-body">
+                <ol class="list-group">
+                  <li
+                    class="
+                      list-group-item
+                      d-flex
+                      justify-content-between
+                      align-items-start
+                    "
+                  >
+                    <div class="ms-2 me-auto">
+                      <div class="list-subtitle fw-bold">
+                        Number of heist members
+                      </div>
+                      <p>Pick any option.</p>
+                    </div>
+                  </li>
+                  <li
+                    class="
+                      list-group-item
+                      d-flex
+                      justify-content-between
+                      align-items-start
+                    "
+                  >
+                    <div class="ms-2 me-auto">
+                      <div class="list-subtitle fw-bold">Bank class</div>
+                      <p>Pick any option.</p>
+                      <p>
+                        <strong>Note</strong>: Bank classes will only have an
+                        effect on the investment price if you choose
+                        <strong>Default</strong> investment type. In this case,
+                        you can choose any class.
+                      </p>
+                    </div>
+                  </li>
+                  <li
+                    class="
+                      list-group-item
+                      d-flex
+                      justify-content-between
+                      align-items-start
+                    "
+                  >
+                    <div class="ms-2 me-auto">
+                      <div class="list-subtitle fw-bold">Investment</div>
+                      <p>Pick the <strong>Custom</strong> option.</p>
+                      <p>
+                        Enter a number in one of the fields to specify the price
+                        of that member's investment.
+                        <u>Important</u>: Don't leave the other fields empty,
+                        set them to 0.
+                      </p>
+                    </div>
+                  </li>
+                  <li
+                    class="
+                      list-group-item
+                      d-flex
+                      justify-content-between
+                      align-items-start
+                    "
+                  >
+                    <div class="ms-2 me-auto">
+                      <div class="list-subtitle fw-bold">Loot payout</div>
+                      <p>
+                        <em>Marked bills</em>: Enter a number on this field to
+                        specify the number of marked bills. Type in 0 for none.
+                      </p>
+                      <p>
+                        <em>Inked bills</em>: Enter a number on this field to
+                        specify the number of inked bills. Type in 0 for none.
+                      </p>
+                      <p>
+                        <em>Cash</em>: Enter a number on this field to specify
+                        the amount of cash. Type in 0 for none.
+                      </p>
+                      <p>
+                        <em>Inked bills</em>: Enter a number on this field to
+                        specify the total estimated amount of other loots.
+                        Example: $700 for a gem. Type in 0 for none.
+                      </p>
+                    </div>
+                  </li>
+                </ol>
               </div>
             </div>
           </div>
           <div class="accordion-item">
             <h2 class="accordion-header" id="faqs-1-h-2">
               <button
-                class="accordion-button fw-bold"
+                class="accordion-button fw-bold collapsed"
                 type="button"
                 data-bs-toggle="collapse"
                 data-bs-target="#faqs-1-b-2"
-                aria-expanded="true"
+                aria-expanded="false"
                 aria-controls="faqs-1-b-2"
               >
-                ...the default calculation
+                Example 2: Investment paid&nbsp;<em>collectively</em>&nbsp;by
+                all members (group purchase)
               </button>
             </h2>
             <div
+              class="accordion-collapse collapse"
               id="faqs-1-b-2"
-              class="accordion-collapse collapse show"
               aria-labelledby="faqs-1-h-2"
             >
-              <div
-                class="accordion-body"
-                xmlns="http://www.w3.org/1998/Math/MathML"
+              <div class="accordion-body">
+                <ol class="list-group">
+                  <li
+                    class="
+                      list-group-item
+                      d-flex
+                      justify-content-between
+                      align-items-start
+                    "
+                  >
+                    <div class="ms-2 me-auto">
+                      <div class="list-subtitle fw-bold">
+                        Number of heist members
+                      </div>
+                      <p>Pick any option.</p>
+                    </div>
+                  </li>
+                  <li
+                    class="
+                      list-group-item
+                      d-flex
+                      justify-content-between
+                      align-items-start
+                    "
+                  >
+                    <div class="ms-2 me-auto">
+                      <div class="list-subtitle fw-bold">Bank class</div>
+                      <p>Pick a class.</p>
+                      <p>
+                        <strong>Note</strong>: Bank classes will only have an
+                        effect on the investment price if you choose
+                        <strong>Default</strong> investment type. In this case,
+                        the class you choose will determine the investment
+                        price.
+                      </p>
+                      <p>
+                        <em><strong>Important</strong></em
+                        >: For <strong>City Vault</strong> class, due to
+                        thermites being unobtainable through a fixed system,
+                        with no fixed price currently known, selecting
+                        <strong>Custom</strong> investment option is
+                        recommended.
+                      </p>
+                    </div>
+                  </li>
+                  <li
+                    class="
+                      list-group-item
+                      d-flex
+                      justify-content-between
+                      align-items-start
+                    "
+                  >
+                    <div class="ms-2 me-auto">
+                      <div class="list-subtitle fw-bold">Investment</div>
+                      <p>Pick the <strong>Default</strong> option.</p>
+                      <p>
+                        This will disable all input fields for investment price.
+                        Basically, the amount of investment paid by each member
+                        is considered to be equal. Example: If there are
+                        <strong>3</strong> members and <strong>Fleeca</strong>
+                        was selected, each member would then pay $3,333.33.
+                      </p>
+                    </div>
+                  </li>
+                  <li
+                    class="
+                      list-group-item
+                      d-flex
+                      justify-content-between
+                      align-items-start
+                    "
+                  >
+                    <div class="ms-2 me-auto">
+                      <div class="list-subtitle fw-bold">Loot payout</div>
+                      <p>
+                        <em>Marked bills</em>: Enter a number on this field to
+                        specify the number of marked bills. Type in 0 for none.
+                      </p>
+                      <p>
+                        <em>Inked bills</em>: Enter a number on this field to
+                        specify the number of inked bills. Type in 0 for none.
+                      </p>
+                      <p>
+                        <em>Cash</em>: Enter a number on this field to specify
+                        the amount of cash. Type in 0 for none.
+                      </p>
+                      <p>
+                        <em>Inked bills</em>: Enter a number on this field to
+                        specify the total estimated amount of other loots.
+                        Example: $700 for a gem. Type in 0 for none.
+                      </p>
+                    </div>
+                  </li>
+                </ol>
+              </div>
+            </div>
+          </div>
+          <div class="accordion-item">
+            <h2 class="accordion-header" id="faqs-1-h-3">
+              <button
+                class="accordion-button fw-bold collapsed"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#faqs-1-b-3"
+                aria-expanded="false"
+                aria-controls="faqs-1-b-3"
               >
+                Example 3: Custom investment
+              </button>
+            </h2>
+            <div
+              class="accordion-collapse collapse"
+              id="faqs-1-b-3"
+              aria-labelledby="faqs-1-h-3"
+            >
+              <div class="accordion-body">
+                <ol class="list-group">
+                  <li
+                    class="
+                      list-group-item
+                      d-flex
+                      justify-content-between
+                      align-items-start
+                    "
+                  >
+                    <div class="ms-2 me-auto">
+                      <div class="list-subtitle fw-bold">
+                        Number of heist members
+                      </div>
+                      <p>Pick any option.</p>
+                    </div>
+                  </li>
+                  <li
+                    class="
+                      list-group-item
+                      d-flex
+                      justify-content-between
+                      align-items-start
+                    "
+                  >
+                    <div class="ms-2 me-auto">
+                      <div class="list-subtitle fw-bold">Bank class</div>
+                      <p>Pick any option.</p>
+                      <p>
+                        <strong>Note</strong>: Bank classes will only have an
+                        effect on the investment price if you choose
+                        <strong>Default</strong> investment type. In this case,
+                        you can choose any class.
+                      </p>
+                    </div>
+                  </li>
+                  <li
+                    class="
+                      list-group-item
+                      d-flex
+                      justify-content-between
+                      align-items-start
+                    "
+                  >
+                    <div class="ms-2 me-auto">
+                      <div class="list-subtitle fw-bold">Investment</div>
+                      <p>Pick the <strong>Custom</strong> option.</p>
+                      <p>
+                        Enter a number in every field to specify the price of
+                        each member's investment. If some members don't pay,
+                        type in 0.
+                      </p>
+                    </div>
+                  </li>
+                  <li
+                    class="
+                      list-group-item
+                      d-flex
+                      justify-content-between
+                      align-items-start
+                    "
+                  >
+                    <div class="ms-2 me-auto">
+                      <div class="list-subtitle fw-bold">Loot payout</div>
+                      <p>
+                        <em>Marked bills</em>: Enter a number on this field to
+                        specify the number of marked bills. Type in 0 for none.
+                      </p>
+                      <p>
+                        <em>Inked bills</em>: Enter a number on this field to
+                        specify the number of inked bills. Type in 0 for none.
+                      </p>
+                      <p>
+                        <em>Cash</em>: Enter a number on this field to specify
+                        the amount of cash. Type in 0 for none.
+                      </p>
+                      <p>
+                        <em>Inked bills</em>: Enter a number on this field to
+                        specify the total estimated amount of other loots.
+                        Example: $700 for a gem. Type in 0 for none.
+                      </p>
+                    </div>
+                  </li>
+                </ol>
+              </div>
+            </div>
+          </div>
+        </div>
+        <h3 class="display-7">Definitions</h3>
+        <div class="accordion" id="faqs-2">
+          <div class="accordion-item">
+            <h2 class="accordion-header" id="faqs-2-h-1">
+              <button
+                class="accordion-button fw-bold"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#faqs-2-b-1"
+                aria-expanded="true"
+                aria-controls="faqs-2-b-1"
+              >
+                Number of heist members
+              </button>
+            </h2>
+            <div
+              class="accordion-collapse collapse show"
+              id="faqs-2-b-1"
+              aria-labelledby="faqs-2-h-1"
+            >
+              <div class="accordion-body">
                 <p>
-                  The underlying math is very simple. The cut received by
-                  <img
-                    class="sym-svg"
-                    src="static/symbols/sym1.svg"
-                    alt="i"
-                  />-th member is calculated as:
+                  This defines how many members are involved in the group,
+                  responsible for paying for the investment and eligible for
+                  loot reward. For bank heists, the maximum number is 4 people.
                 </p>
-                <p class="text-center">
-                  <img
-                    class="eqs-svg"
-                    src="static/eqs/eq1.svg"
-                    alt="cut equals payout per n"
-                  />
-                </p>
+              </div>
+            </div>
+          </div>
+          <div class="accordion-item">
+            <h2 class="accordion-header" id="faqs-2-h-2">
+              <button
+                class="accordion-button fw-bold"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#faqs-2-b-2"
+                aria-expanded="true"
+                aria-controls="faqs-2-b-2"
+              >
+                Bank class
+              </button>
+            </h2>
+            <div
+              class="accordion-collapse collapse show"
+              id="faqs-2-b-2"
+              aria-labelledby="faqs-2-h-2"
+            >
+              <div class="accordion-body">
                 <p>
-                  where
-                  <img class="sym-svg" src="static/symbols/sym2.svg" alt="n" />
-                  is number of members. Each member pays the same amount, thus
-                  there are no cases of uneven payouts.
+                  The <strong>bank</strong> you are hitting. Bank classes will
+                  only have an effect on the investment price if you choose
+                  <strong>Default</strong> investment type. This will set the
+                  investment price equal to the
+                  <strong>minimum investment</strong> required for the
+                  corresponding bank class. Details for this price can be found
+                  in the next section.
                 </p>
+              </div>
+            </div>
+          </div>
+          <div class="accordion-item">
+            <h2 class="accordion-header" id="faqs-2-h-3">
+              <button
+                class="accordion-button fw-bold"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#faqs-2-b-3"
+                aria-expanded="true"
+                aria-controls="faqs-2-b-3"
+              >
+                Investment
+              </button>
+            </h2>
+            <div
+              class="accordion-collapse collapse show"
+              id="faqs-2-b-3"
+              aria-labelledby="faqs-2-h-3"
+            >
+              <div class="accordion-body table-responsive">
                 <p>
-                  <em>Example</em>: If you hit a Fleeca bank and the payout you
-                  received is 213 marked bills, then just divide 213 by how many
-                  members are in the group. If there are 3 members, each would
-                  receive 71 bags since 213 divided by 3 is 71. Simple.
+                  The <strong>investment</strong> is the total amount of money
+                  your group has spent to be able to hit a bank. The amount
+                  varies with each bank class (typical case). For more uncommon
+                  cases, you can define your own investment price and also map
+                  them differently for each member by choosing the
+                  <strong>Custom</strong>
+                  option for investment type. For more typical cases, choose the
+                  <strong>Default</strong> option to use the
+                  <strong>minimum investment</strong> required for each bank
+                  class, as defined below.
+                </p>
+                <table class="table">
+                  <thead>
+                    <tr>
+                      <th
+                        scope="col"
+                        class="table-dark text-center text-success"
+                      >
+                        Fleeca
+                      </th>
+                      <th
+                        scope="col"
+                        class="table-dark text-center text-primary"
+                      >
+                        Paleto
+                      </th>
+                      <th
+                        scope="col"
+                        class="table-dark text-center text-danger"
+                      >
+                        City Vault
+                        <span class="text-secondary fw-lighter">*</span>
+                      </th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td class="table-light text-center">$10,000</td>
+                      <td class="table-light text-center">$25,000</td>
+                      <td class="table-light text-center">
+                        $71,000 <span class="text-secondary">*</span>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+                <p class="text-info">
+                  * As of now, the <strong>City Vault</strong> is not
+                  <em>guaranteed</em>
+                  to have a minimum investment required of this value. Due to
+                  thermites being unobtainable through a fixed system, with no
+                  fixed price currently known, it is highly recommended to
+                  select
+                  <strong>Custom</strong> investment option.
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="accordion-item">
+            <h2 class="accordion-header" id="faqs-2-h-3">
+              <button
+                class="accordion-button fw-bold"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#faqs-2-b-3"
+                aria-expanded="true"
+                aria-controls="faqs-2-b-3"
+              >
+                Loot payout
+              </button>
+            </h2>
+            <div
+              class="accordion-collapse collapse show"
+              id="faqs-2-b-3"
+              aria-labelledby="faqs-2-h-3"
+            >
+              <div class="accordion-body">
+                <p>
+                  <strong>Loot payout</strong> is the loot obtained after
+                  successfully robbing a bank. Gems and other loot have to be
+                  converted into an estimated amount of cash in total. Dongles
+                  are not considered splittable loot as they will be assumed to
+                  be the investment for another bank heist used by the same
+                  group.
                 </p>
               </div>
             </div>
           </div>
         </div>
-        <h3 class="display-7 mb-4">Details</h3>
-        <div class="accordion mb-4" id="faqs-2"></div>
+        <h3 class="display-7">Disclaimer</h3>
+        <div class="disclaimer-body">
+          <p>
+            The loot payout, i.e. marked bills, inked bills, and cash (cash +
+            others), is <em>not guaranteed</em> to be split properly. However,
+            the <strong>payout</strong> (converted to cash) for each member
+            given inside the split table is <em>guaranteed</em> to be correct.
+            If in some cases the loot split is not properly done,
+            <em>always</em> refer to the
+            <strong>payout</strong>
+            result.
+          </p>
+        </div>
       </div>
     </main>
     <footer id="bootstrap-overrides" class="footer py-3">
       <div class="container-fluid text-center">
         <div class="row mb-2">
-          <span class="col">Created by Switch</span>
+          <span class="col">NoPixel Loot Splitter</span>
+        </div>
+        <div class="row mb-2">
+          <span class="col">Created by switchdv</span>
         </div>
         <div class="row">
           <span class="col">

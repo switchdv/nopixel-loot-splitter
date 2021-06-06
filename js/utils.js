@@ -120,6 +120,6 @@ const otherPayout = new bootstrap.Popover(otherEl, {
   offset: [0, 13.6],
   content: `
     If there are any other forms of loot, e.g. gems, type the total value here.
-    You can just approximate if you don't know the exact number.
+    You can approximate the number.
   `,
 });
