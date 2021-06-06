@@ -40,6 +40,10 @@ footer {
   color: #ba135d !important;
 }
 
+.text-footer-info {
+  color: #278ea5 !important;
+}
+
 #homeNav.nav-link,
 #infoNav.nav-link {
   color: #278ea5;
