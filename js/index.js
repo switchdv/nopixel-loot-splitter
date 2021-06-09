@@ -190,7 +190,7 @@ const getShungitePoints = () => {
     return 250;
   }
   if (bankClassOptions[2].checked) {
-    return 500;
+    return 250;
   }
 };
 
@@ -229,7 +229,7 @@ const getDefaultInvestment = (bankClass) => {
   if (bankClass === 2) {
     return 25000;
   } else if (bankClass === 3) {
-    return 71000;
+    return 46000;
   }
   return 10000;
 };
