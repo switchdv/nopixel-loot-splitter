@@ -302,13 +302,15 @@ const showMemberCut = (cuts) => {
     );
 
     const cId = "member-" + (i + 1) + "-c";
+    const cash = cuts[member].cash;
     document.getElementById(cId).innerHTML = numberWithCommas(
-      cuts[member].cash
+      Math.round((cash + Number.EPSILON) * 100) / 100
     );
 
     const tId = "member-" + (i + 1) + "-t";
+    const cut = convertMemberPayoutToCash(cuts[member]);
     document.getElementById(tId).innerHTML = numberWithCommas(
-      convertMemberPayoutToCash(cuts[member])
+      Math.round((cut + Number.EPSILON) * 100) / 100
     );
 
     const pId = "member-" + (i + 1) + "-p";
@@ -316,8 +318,9 @@ const showMemberCut = (cuts) => {
     if (memberInvList[i] !== undefined) {
       memberInv = memberInvList[i];
     }
+    const profit = cut - memberInv;
     document.getElementById(pId).innerHTML = numberWithCommas(
-      convertMemberPayoutToCash(cuts[member]) - memberInv
+      Math.round((profit + Number.EPSILON) * 100) / 100
     );
   }
 };
