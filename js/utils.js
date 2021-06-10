@@ -85,7 +85,7 @@ const defaultPopover = new bootstrap.Popover(defaultEl, {
             <strong>$25,000</strong>
           </div>
           <div class="col-sm-4 text-center">
-            <strong>$46,000</strong>
+            <strong>$71,000</strong>
           </div>
         </div>
       </div>
