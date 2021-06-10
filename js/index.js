@@ -190,7 +190,7 @@ const getShungitePoints = () => {
     return 250;
   }
   if (bankClassOptions[2].checked) {
-    return 250;
+    return 500;
   }
 };
 
@@ -207,6 +207,13 @@ const getBankClass = () => {
 
 const numberWithCommas = (num) => {
   return num.toString().replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ",");
+};
+
+const roundDecimals = (num, decimals) => {
+  return (
+    Math.round((num + Number.EPSILON) * Math.pow(10, decimals)) /
+    Math.pow(10, decimals)
+  );
 };
 
 const convertMarkedBillToCash = (bags) => {
@@ -229,7 +236,7 @@ const getDefaultInvestment = (bankClass) => {
   if (bankClass === 2) {
     return 25000;
   } else if (bankClass === 3) {
-    return 46000;
+    return 71000;
   }
   return 10000;
 };
@@ -304,23 +311,25 @@ const showMemberCut = (cuts) => {
     const cId = "member-" + (i + 1) + "-c";
     const cash = cuts[member].cash;
     document.getElementById(cId).innerHTML = numberWithCommas(
-      Math.round((cash + Number.EPSILON) * 100) / 100
+      roundDecimals(cash, 2)
     );
 
     const tId = "member-" + (i + 1) + "-t";
     const cut = convertMemberPayoutToCash(cuts[member]);
     document.getElementById(tId).innerHTML = numberWithCommas(
-      Math.round((cut + Number.EPSILON) * 100) / 100
+      roundDecimals(cut, 2)
     );
 
     const pId = "member-" + (i + 1) + "-p";
-    var memberInv = getTotalInvestment() / numOfMembers;
-    if (memberInvList[i] !== undefined) {
+    let memberInv;
+    if (investmentOption1.checked) {
+      memberInv = getDefaultInvestment(getBankClass()) / numOfMembers;
+    } else {
       memberInv = memberInvList[i];
     }
-    const profit = cut - memberInv;
+    const profit = convertMemberPayoutToCash(cuts[member]) - memberInv;
     document.getElementById(pId).innerHTML = numberWithCommas(
-      Math.round((profit + Number.EPSILON) * 100) / 100
+      roundDecimals(profit, 2)
     );
   }
 };
@@ -367,8 +376,6 @@ const splitLoot = () => {
     }
     cuts[member].markedBags += bags;
     cuts[member].cash -= convertMarkedBillToCash(bags);
-    cuts[member].cash =
-      Math.round((cuts[member].cash + Number.EPSILON) * 100) / 100;
     pMarkedBags -= bags;
   }
 
