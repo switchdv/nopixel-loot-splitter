@@ -88,43 +88,68 @@
             <div class="col-sm-6 mb-4">
               <div class="card">
                 <div class="card-header">Number of heist members</div>
-                <div class="card-body">
-                  <div class="form-check form-check-inline">
-                    <input
-                      class="form-check-input"
-                      type="radio"
-                      name="firstParam"
-                      id="firstParam2"
-                      value="2"
-                    />
-                    <label class="form-check-label" for="firstParam2"
-                      >2 people</label
-                    >
+                <div class="card-body d-flex">
+                  <div class="row">
+                    <div class="col">
+                      <div class="form-check form-check-inline">
+                        <input
+                          class="form-check-input"
+                          type="radio"
+                          name="firstParam"
+                          id="firstParam2"
+                          value="2"
+                        />
+                        <label class="form-check-label" for="firstParam2"
+                          >2 people</label
+                        >
+                      </div>
+                      <div class="form-check form-check-inline">
+                        <input
+                          class="form-check-input"
+                          type="radio"
+                          name="firstParam"
+                          id="firstParam3"
+                          value="3"
+                        />
+                        <label class="form-check-label" for="firstParam3"
+                          >3 people</label
+                        >
+                      </div>
+                      <div class="form-check form-check-inline">
+                        <input
+                          class="form-check-input"
+                          type="radio"
+                          name="firstParam"
+                          id="firstParam4"
+                          value="4"
+                          checked
+                        />
+                        <label class="form-check-label" for="firstParam4"
+                          >4 people</label
+                        >
+                      </div>
+                    </div>
                   </div>
-                  <div class="form-check form-check-inline">
-                    <input
-                      class="form-check-input"
-                      type="radio"
-                      name="firstParam"
-                      id="firstParam3"
-                      value="3"
-                    />
-                    <label class="form-check-label" for="firstParam3"
-                      >3 people</label
-                    >
-                  </div>
-                  <div class="form-check form-check-inline">
-                    <input
-                      class="form-check-input"
-                      type="radio"
-                      name="firstParam"
-                      id="firstParam4"
-                      value="4"
-                      checked
-                    />
-                    <label class="form-check-label" for="firstParam4"
-                      >4 people</label
-                    >
+                  <div class="row push-bottom"></div>
+                  <div class="row mt-2">
+                    <div class="col">
+                      <div
+                        class="alert alert-primary d-flex align-items-center"
+                      >
+                        <svg
+                          width="16"
+                          height="16"
+                          fill="#00f8b9"
+                          viewBox="0 0 16 16"
+                          style="min-width: 16px"
+                        >
+                          <path
+                            d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm.93-9.412-1 4.705c-.07.34.029.533.304.533.194 0 .487-.07.686-.246l-.088.416c-.287.346-.92.598-1.465.598-.703 0-1.002-.422-.808-1.319l.738-3.468c.064-.293.006-.399-.287-.47l-.451-.081.082-.381 2.29-.287zM8 5.5a1 1 0 1 1 0-2 1 1 0 0 1 0 2z"
+                          ></path>
+                        </svg>
+                        <div>Make sure to choose the right number.</div>
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -176,13 +201,75 @@
                       >City Vault</label
                     >
                   </div>
-                  <span class="inv">
-                    Shungites:
-                    <span class="inv-price" id="shungite">100</span>
-                    <span class="ms-2" id="thermite" hidden
-                      >Thermites: <span style="color: #00f8b9"> 3</span></span
+                  <div class="form-check form-check-inline">
+                    <input
+                      class="form-check-input"
+                      type="radio"
+                      name="secondParam"
+                      id="secondParam4"
+                      value="4"
+                    />
+                    <label
+                      class="form-check-label text-warning"
+                      for="secondParam4"
+                      >Jewelry Store</label
                     >
-                  </span>
+                  </div>
+                  <div class="form-check form-check-inline">
+                    <input
+                      class="form-check-input"
+                      type="radio"
+                      name="secondParam"
+                      id="secondParam5"
+                      value="5"
+                    />
+                    <label
+                      class="form-check-label text-secondary"
+                      for="secondParam5"
+                      >Others</label
+                    >
+                  </div>
+                  <div class="inv">
+                    <span id="shungite-label"> Shungites:</span>
+                    <span class="inv-price" id="shungite">100</span>
+                    <span class="ms-2" id="thermite-label">Thermites:</span>
+                    <span style="color: #00f8b9" id="thermite">0</span>
+                  </div>
+                  <div class="alert alert-primary d-flex align-items-center">
+                    <svg
+                      width="16"
+                      height="16"
+                      fill="#00f8b9"
+                      viewBox="0 0 16 16"
+                      style="min-width: 16px"
+                    >
+                      <path
+                        d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm.93-9.412-1 4.705c-.07.34.029.533.304.533.194 0 .487-.07.686-.246l-.088.416c-.287.346-.92.598-1.465.598-.703 0-1.002-.422-.808-1.319l.738-3.468c.064-.293.006-.399-.287-.47l-.451-.081.082-.381 2.29-.287zM8 5.5a1 1 0 1 1 0-2 1 1 0 0 1 0 2z"
+                      ></path>
+                    </svg>
+                    <span>
+                      No effect when you have selected
+                      <strong>Custom</strong> investment option.
+                    </span>
+                  </div>
+                  <div class="alert alert-primary d-flex align-items-center">
+                    <svg
+                      width="16"
+                      height="16"
+                      fill="#00f8b9"
+                      viewBox="0 0 16 16"
+                      style="min-width: 16px"
+                    >
+                      <path
+                        d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm.93-9.412-1 4.705c-.07.34.029.533.304.533.194 0 .487-.07.686-.246l-.088.416c-.287.346-.92.598-1.465.598-.703 0-1.002-.422-.808-1.319l.738-3.468c.064-.293.006-.399-.287-.47l-.451-.081.082-.381 2.29-.287zM8 5.5a1 1 0 1 1 0-2 1 1 0 0 1 0 2z"
+                      ></path>
+                    </svg>
+                    <span>
+                      Make sure to select
+                      <strong>Custom</strong> investment option for
+                      <strong>Others</strong>.
+                    </span>
+                  </div>
                 </div>
               </div>
             </div>
@@ -416,7 +503,7 @@
                       </div>
                     </div>
                   </div>
-                  <div class="row row-cols-2 mb-4">
+                  <div class="row row-cols-2">
                     <label for="fifthParam4" class="col-sm-3 col-form-label"
                       >Others
                     </label>
@@ -1052,6 +1139,13 @@
                         City Vault
                         <span class="text-secondary fw-lighter">*</span>
                       </th>
+                      <th
+                        scope="col"
+                        class="table-dark text-center text-warning"
+                      >
+                        Jewelry Store
+                        <span class="text-secondary fw-lighter">*</span>
+                      </th>
                     </tr>
                   </thead>
                   <tbody>
@@ -1061,11 +1155,15 @@
                       <td class="table-light text-center">
                         $71,000 <span class="text-secondary">*</span>
                       </td>
+                      <td class="table-light text-center">
+                        $7,000 <span class="text-secondary">*</span>
+                      </td>
                     </tr>
                   </tbody>
                 </table>
                 <p class="text-info">
-                  * As of now, the <strong>City Vault</strong> is
+                  * As of now, the <strong>City Vault</strong> and
+                  <strong>Jewelry Store</strong> are
                   <em>not guaranteed</em>
                   to have a minimum investment required of this value. Due to
                   thermites being unobtainable through a fixed system, with no
@@ -1156,4 +1254,5 @@
   ></script>
   <script src="js/index.js"></script>
   <script src="js/utils.js"></script>
+  <script src="js/split.js"></script>
 </html>

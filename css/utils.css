@@ -1,6 +1,7 @@
 .popover {
   background-color: #0a1931;
   border-color: #00f8b9;
+  max-width: 320px;
 }
 
 .popover[data-popper-placement="top"] > .popover-arrow::before {

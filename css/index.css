@@ -194,6 +194,25 @@ label[name="fourthParamLabel"] {
   padding: 1.25rem 1.25rem;
 }
 
+.inv {
+  margin: 0.5rem 0;
+}
+
+.alert {
+  padding: 0px;
+  margin: 0;
+}
+
+.alert > svg {
+  margin-right: 0.5rem;
+}
+
+.alert-primary {
+  color: #278ea5;
+  background-color: inherit;
+  border: none;
+}
+
 .total-price {
   text-align: center;
 }

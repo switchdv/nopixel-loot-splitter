@@ -4,6 +4,7 @@ const pageElements = document.querySelectorAll(".content-page");
 const numOfMembersOptions = document.getElementsByName("firstParam");
 
 const shungiteElement = document.getElementById("shungite");
+const thermiteElement = document.getElementById("thermite");
 
 const bankClassOptions = document.getElementsByName("secondParam");
 
@@ -192,6 +193,19 @@ const getShungitePoints = () => {
   if (bankClassOptions[2].checked) {
     return 500;
   }
+
+  return 0;
+};
+
+const getThermitePoints = () => {
+  if (bankClassOptions[2].checked) {
+    return 3;
+  }
+  if (bankClassOptions[3].checked) {
+    return 1;
+  }
+
+  return 0;
 };
 
 const getBankClass = () => {
@@ -232,18 +246,13 @@ const convertMemberPayoutToCash = (memberPayout) => {
   );
 };
 
-const getDefaultInvestment = (bankClass) => {
-  if (bankClass === 2) {
-    return 25000;
-  } else if (bankClass === 3) {
-    return 71000;
-  }
-  return 10000;
+const getDefaultInvestment = () => {
+  return getShungitePoints() * 100 + getThermitePoints() * 7000;
 };
 
 const getTotalInvestment = () => {
   if (investmentOption1.checked) {
-    const totalPrice = getDefaultInvestment(getBankClass());
+    const totalPrice = getDefaultInvestment();
     return totalPrice;
   }
 
@@ -323,7 +332,7 @@ const showMemberCut = (cuts) => {
     const pId = "member-" + (i + 1) + "-p";
     let memberInv;
     if (investmentOption1.checked) {
-      memberInv = getDefaultInvestment(getBankClass()) / numOfMembers;
+      memberInv = getDefaultInvestment() / numOfMembers;
     } else {
       memberInv = memberInvList[i];
     }
@@ -355,7 +364,7 @@ const splitLoot = () => {
 
     let memberInv;
     if (investmentOption1.checked) {
-      memberInv = getDefaultInvestment(getBankClass()) / numOfMembers;
+      memberInv = getDefaultInvestment() / numOfMembers;
     } else {
       memberInv = memberInvList[i];
     }
@@ -417,11 +426,7 @@ bankClassOptions.forEach((bankClass) => {
   bankClass.addEventListener("change", () => {
     if (bankClass.checked) {
       shungiteElement.innerHTML = numberWithCommas(getShungitePoints());
-      if (bankClass.value === "3") {
-        document.getElementById("thermite").removeAttribute("hidden");
-      } else {
-        document.getElementById("thermite").setAttribute("hidden", true);
-      }
+      thermiteElement.innerHTML = numberWithCommas(getThermitePoints());
 
       showTotalInvestment();
     }

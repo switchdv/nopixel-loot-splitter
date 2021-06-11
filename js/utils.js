@@ -66,26 +66,32 @@ const defaultPopover = new bootstrap.Popover(defaultEl, {
         </span>
       </div>
       <div>
-        <div class="row row-cols-3 mb-2">
-          <div class="col-sm-4 text-center">
+        <div class="row row-cols-4 mb-2">
+          <div class="col-sm-3 text-center">
             <span class="text-success">Fleeca</span>
           </div>
-          <div class="col-sm-4 text-center">
+          <div class="col-sm-3 text-center">
             <span class="text-primary">Paleto</span>
           </div>
-          <div class="col-sm-4 text-center">
+          <div class="col-sm-3 text-center">
             <span class="text-danger">Vault</span>
           </div>
+          <div class="col-sm-3 text-center">
+            <span class="text-warning">Jewelry</span>
+          </div>
         </div>
-        <div class="row row-cols-3 mb-2">
-          <div class="col-sm-4 text-center">
+        <div class="row row-cols-4 mb-2">
+          <div class="col-sm-3 text-center">
             <strong>$10,000</strong>
           </div>
-          <div class="col-sm-4 text-center">
+          <div class="col-sm-3 text-center">
             <strong>$25,000</strong>
           </div>
-          <div class="col-sm-4 text-center">
+          <div class="col-sm-3 text-center">
             <strong>$71,000</strong>
+          </div>
+          <div class="col-sm-3 text-center">
+            <strong>$7,000</strong>
           </div>
         </div>
       </div>
