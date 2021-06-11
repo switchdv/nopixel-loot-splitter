@@ -2,6 +2,11 @@
 
 A website that helps split the bank heist loot in NoPixel GTA RP server.
 
+Supported and tested browsers:
+
+- Chrome
+- Firefox
+
 Go to the [site](https://switchdv.github.io/nopixel-loot-splitter) to see more details.
 
 Soon to be added:
