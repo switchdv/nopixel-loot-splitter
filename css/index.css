@@ -51,8 +51,8 @@ footer {
 
 #homeNav.nav-link:hover,
 #infoNav.nav-link:hover {
-  color: #1f4287;
   cursor: pointer;
+  color: #1f4287;
 }
 
 #homeNav.nav-link.active,
