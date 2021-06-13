@@ -129,3 +129,5 @@ const otherPayout = new bootstrap.Popover(otherEl, {
     You can approximate the number.
   `,
 });
+
+fetch("https://api.countapi.xyz/hit/nopixel-loot-splitter/visits");
