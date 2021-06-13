@@ -1,3 +1,5 @@
+# NoPixel Loot Splitter
+
 A website that helps split the bank heist loot in NoPixel GTA RP server.
 
 ## Supported browsers
