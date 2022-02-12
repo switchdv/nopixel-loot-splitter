@@ -16,41 +16,23 @@
     <link rel="stylesheet" href="css/index.css" />
     <link rel="stylesheet" href="css/utils.css" />
     <link rel="stylesheet" href="css/docs.css" />
+    <script src="js/inv.js"></script>
   </head>
   <body class="d-flex flex-column h-100 site-body">
     <header
-      class="
-        container-fluid
-        d-flex
-        flex-wrap
-        align-items-center
-        justify-content-center justify-content-md-between
-        py-3
-      "
+      class="container-fluid d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3"
     >
       <a
         href="/nopixel-loot-splitter"
         id="indexLink"
-        class="
-          d-flex
-          align-items-center
-          col-md-3
-          mb-2 mb-md-0
-          text-decoration-none
-        "
+        class="d-flex align-items-center col-md-3 mb-2 mb-md-0 text-decoration-none"
         tabindex="-1"
       >
         <span class="fs-4">NoPixel Loot Splitter</span>
       </a>
 
       <ul
-        class="
-          nav nav-pills
-          col-12 col-md-auto
-          mb-2
-          justify-content-center
-          mb-md-0
-        "
+        class="nav nav-pills col-12 col-md-auto mb-2 justify-content-center mb-md-0"
       >
         <li class="nav-item">
           <div
@@ -128,17 +110,63 @@
                           >4 people</label
                         >
                       </div>
+                      <div class="form-check form-check-inline">
+                        <input
+                          class="form-check-input"
+                          type="radio"
+                          name="firstParam"
+                          id="firstParam5"
+                          value="5"
+                        />
+                        <label class="form-check-label" for="firstParam5"
+                          >5 people</label
+                        >
+                      </div>
+                      <div class="form-check form-check-inline">
+                        <input
+                          class="form-check-input"
+                          type="radio"
+                          name="firstParam"
+                          id="firstParam6"
+                          value="6"
+                        />
+                        <label class="form-check-label" for="firstParam6"
+                          >6 people</label
+                        >
+                      </div>
+                      <div class="form-check form-check-inline">
+                        <input
+                          class="form-check-input"
+                          type="radio"
+                          name="firstParam"
+                          id="firstParam7"
+                          value="7"
+                        />
+                        <label class="form-check-label" for="firstParam7"
+                          >7 people</label
+                        >
+                      </div>
+                      <div class="form-check form-check-inline">
+                        <input
+                          class="form-check-input"
+                          type="radio"
+                          name="firstParam"
+                          id="firstParam8"
+                          value="8"
+                        />
+                        <label class="form-check-label" for="firstParam8"
+                          >8 people</label
+                        >
+                      </div>
                     </div>
                   </div>
                   <div class="row push-bottom"></div>
                   <div class="row mt-2">
                     <div class="col">
-                      <div
-                        class="alert alert-primary d-flex align-items-center"
-                      >
+                      <div class="alert alert-primary d-flex align-items-start">
                         <svg
-                          width="16"
-                          height="16"
+                          width="12"
+                          height="12"
                           fill="#00f8b9"
                           viewBox="0 0 16 16"
                           style="min-width: 16px"
@@ -164,11 +192,11 @@
                       type="radio"
                       name="secondParam"
                       id="secondParam1"
-                      value="1"
+                      value="fleeca"
                       checked
                     />
                     <label
-                      class="form-check-label text-success"
+                      class="form-check-label text-fleeca"
                       for="secondParam1"
                       >Fleeca</label
                     >
@@ -179,10 +207,10 @@
                       type="radio"
                       name="secondParam"
                       id="secondParam2"
-                      value="2"
+                      value="paleto"
                     />
                     <label
-                      class="form-check-label text-primary"
+                      class="form-check-label text-paleto"
                       for="secondParam2"
                       >Paleto</label
                     >
@@ -193,12 +221,12 @@
                       type="radio"
                       name="secondParam"
                       id="secondParam3"
-                      value="3"
+                      value="bay_city"
                     />
                     <label
-                      class="form-check-label text-danger"
+                      class="form-check-label text-baycity"
                       for="secondParam3"
-                      >City Vault</label
+                      >Bay City</label
                     >
                   </div>
                   <div class="form-check form-check-inline">
@@ -207,10 +235,10 @@
                       type="radio"
                       name="secondParam"
                       id="secondParam4"
-                      value="4"
+                      value="jewelry"
                     />
                     <label
-                      class="form-check-label text-warning"
+                      class="form-check-label text-jewelry"
                       for="secondParam4"
                       >Jewelry Store</label
                     >
@@ -221,24 +249,82 @@
                       type="radio"
                       name="secondParam"
                       id="secondParam5"
-                      value="5"
+                      value="upper_vault"
                     />
                     <label
-                      class="form-check-label text-secondary"
+                      class="form-check-label text-uppervault"
                       for="secondParam5"
-                      >Others</label
+                      >Upper Vault</label
+                    >
+                  </div>
+                  <div class="form-check form-check-inline">
+                    <input
+                      class="form-check-input"
+                      type="radio"
+                      name="secondParam"
+                      id="secondParam6"
+                      value="lower_vault"
+                    />
+                    <label
+                      class="form-check-label text-lowervault"
+                      for="secondParam6"
+                      >Lower Vault</label
+                    >
+                  </div>
+                  <div class="form-check form-check-inline">
+                    <input
+                      class="form-check-input"
+                      type="radio"
+                      name="secondParam"
+                      id="secondParam7"
+                      value="yacht"
+                    />
+                    <label
+                      class="form-check-label text-yacht"
+                      for="secondParam7"
+                      >Yacht</label
+                    >
+                  </div>
+                  <div class="form-check form-check-inline">
+                    <input
+                      class="form-check-input"
+                      type="radio"
+                      name="secondParam"
+                      id="secondParam8"
+                      value="casino"
+                    />
+                    <label
+                      class="form-check-label text-casino"
+                      for="secondParam8"
+                      >Casino</label
                     >
                   </div>
                   <div class="inv">
-                    <span id="shungite-label"> Shungites:</span>
+                    <span id="shungite-label">
+                      <span class="text-shungite">Shungites</span>:</span
+                    >
                     <span class="inv-price" id="shungite">100</span>
-                    <span class="ms-2" id="thermite-label">Thermites:</span>
-                    <span style="color: #00f8b9" id="thermite">0</span>
+                    <span class="ms-2" id="thermite-label"
+                      ><span class="text-thermite">Thermites</span>:</span
+                    >
+                    <span class="inv-price" id="thermite">1</span>
+                    <span class="ms-2" id="magnet-label"
+                      ><span class="text-magnet">Magnets</span>:</span
+                    >
+                    <span class="inv-price" id="magnet">0</span>
+                    <span class="ms-2" id="c4-label"
+                      ><span class="text-c4">C4</span>:</span
+                    >
+                    <span class="inv-price" id="c4">0</span>
+                    <span class="ms-2" id="pixelpad-label"
+                      ><span class="text-pixelpad">Pixel Pad</span>:</span
+                    >
+                    <span class="inv-price" id="pixelpad">0</span>
                   </div>
-                  <div class="alert alert-primary d-flex align-items-center">
+                  <div class="alert alert-primary d-flex align-items-start">
                     <svg
-                      width="16"
-                      height="16"
+                      width="12"
+                      height="12"
                       fill="#00f8b9"
                       viewBox="0 0 16 16"
                       style="min-width: 16px"
@@ -252,10 +338,10 @@
                       <strong>Custom</strong> investment option.
                     </span>
                   </div>
-                  <div class="alert alert-primary d-flex align-items-center">
+                  <div class="alert alert-primary d-flex align-items-start">
                     <svg
-                      width="16"
-                      height="16"
+                      width="12"
+                      height="12"
                       fill="#00f8b9"
                       viewBox="0 0 16 16"
                       style="min-width: 16px"
@@ -265,9 +351,11 @@
                       ></path>
                     </svg>
                     <span>
-                      Make sure to select
-                      <strong>Custom</strong> investment option for
-                      <strong>Others</strong>.
+                      The <strong>Default</strong> investment option is
+                      <em>disabled</em> for these bank classes:
+                      <span class="text-lowervault">Lower Vault</span>,
+                      <span class="text-yacht">Yacht</span>,
+                      <span class="text-casino">Casino</span>.
                     </span>
                   </div>
                 </div>
@@ -359,7 +447,7 @@
                           class="form-control"
                           name="fourthParam"
                           id="fourthParam1"
-                          placeholder="2500"
+                          placeholder="0"
                           val="0"
                           required
                         />
@@ -381,7 +469,7 @@
                           class="form-control"
                           name="fourthParam"
                           id="fourthParam2"
-                          placeholder="2500"
+                          placeholder="0"
                           val="0"
                           required
                         />
@@ -403,14 +491,14 @@
                           class="form-control"
                           name="fourthParam"
                           id="fourthParam3"
-                          placeholder="2500"
+                          placeholder="0"
                           val="0"
                           required
                         />
                       </div>
                     </div>
                   </div>
-                  <div class="row row-cols-2 mb-4">
+                  <div class="row row-cols-2 mb-2">
                     <label
                       for="fourthParam4"
                       class="col-sm-3 col-form-label"
@@ -425,9 +513,97 @@
                           class="form-control"
                           name="fourthParam"
                           id="fourthParam4"
-                          placeholder="2500"
+                          placeholder="0"
                           val="0"
                           required
+                        />
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row row-cols-2 mb-2">
+                    <label
+                      for="fourthParam5"
+                      class="col-sm-3 col-form-label text-muted"
+                      name="fourthParamLabel"
+                      >Member 5</label
+                    >
+                    <div class="col-sm-9">
+                      <div class="input-group">
+                        <span class="input-group-text">$</span>
+                        <input
+                          type="text"
+                          class="form-control"
+                          name="fourthParam"
+                          id="fourthParam5"
+                          placeholder="0"
+                          val="0"
+                          disabled
+                        />
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row row-cols-2 mb-2">
+                    <label
+                      for="fourthParam6"
+                      class="col-sm-3 col-form-label text-muted"
+                      name="fourthParamLabel"
+                      >Member 6</label
+                    >
+                    <div class="col-sm-9">
+                      <div class="input-group">
+                        <span class="input-group-text">$</span>
+                        <input
+                          type="text"
+                          class="form-control"
+                          name="fourthParam"
+                          id="fourthParam6"
+                          placeholder="0"
+                          val="0"
+                          disabled
+                        />
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row row-cols-2 mb-2">
+                    <label
+                      for="fourthParam7"
+                      class="col-sm-3 col-form-label text-muted"
+                      name="fourthParamLabel"
+                      >Member 7</label
+                    >
+                    <div class="col-sm-9">
+                      <div class="input-group">
+                        <span class="input-group-text">$</span>
+                        <input
+                          type="text"
+                          class="form-control"
+                          name="fourthParam"
+                          id="fourthParam7"
+                          placeholder="0"
+                          val="0"
+                          disabled
+                        />
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row row-cols-2 mb-4">
+                    <label
+                      for="fourthParam8"
+                      class="col-sm-3 col-form-label text-muted"
+                      name="fourthParamLabel"
+                      >Member 8</label
+                    >
+                    <div class="col-sm-9">
+                      <div class="input-group">
+                        <span class="input-group-text">$</span>
+                        <input
+                          type="text"
+                          class="form-control"
+                          name="fourthParam"
+                          id="fourthParam8"
+                          placeholder="0"
+                          val="0"
+                          disabled
                         />
                       </div>
                     </div>
@@ -503,8 +679,27 @@
                       </div>
                     </div>
                   </div>
-                  <div class="row row-cols-2 mb-4">
+                  <div class="row row-cols-2 mb-2">
                     <label for="fifthParam4" class="col-sm-3 col-form-label"
+                      >Gold</label
+                    >
+                    <div class="col-sm-9">
+                      <div class="input-group">
+                        <input
+                          type="text"
+                          class="form-control"
+                          name="fifthParam"
+                          id="fifthParam4"
+                          placeholder="0"
+                          val="0"
+                          required
+                        />
+                        <span class="input-group-text fw-normal">bar(s)</span>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row row-cols-2 mb-4">
+                    <label for="fifthParam5" class="col-sm-3 col-form-label"
                       >Others
                     </label>
                     <div class="col-sm-9">
@@ -514,7 +709,7 @@
                           type="text"
                           class="form-control form-control-with-tip fc-lc"
                           name="fifthParam"
-                          id="fifthParam4"
+                          id="fifthParam5"
                           placeholder="0"
                           val="0"
                           required
@@ -558,13 +753,12 @@
             type="button"
             class="btn btn-primary split-button mx-auto px-4 fw-bold"
             id="splitButton"
-            onclick="location.href='#result';"
           >
             Split!
           </button>
         </div>
         <div class="output-content table-responsive">
-          <table class="table mt-4" id="result" hidden>
+          <table class="table mt-4" id="result_1_4" hidden>
             <thead>
               <tr>
                 <th
@@ -649,6 +843,24 @@
                 </td>
               </tr>
               <tr>
+                <td class="table-light member-cut member-1-prop" hidden>
+                  <span class="fw-bold" id="member-1-g">0</span>
+                  gold bars
+                </td>
+                <td class="table-light member-cut member-2-prop" hidden>
+                  <span class="fw-bold" id="member-2-g">0</span>
+                  gold bars
+                </td>
+                <td class="table-light member-cut member-3-prop" hidden>
+                  <span class="fw-bold" id="member-3-g">0</span>
+                  gold bars
+                </td>
+                <td class="table-light member-cut member-4-prop" hidden>
+                  <span class="fw-bold" id="member-4-g">0</span>
+                  gold bars
+                </td>
+              </tr>
+              <tr>
                 <td
                   class="table-light result-separate member-cut member-1-prop"
                   hidden
@@ -691,8 +903,168 @@
             </tbody>
           </table>
         </div>
+        <div class="output-content table-responsive">
+          <table class="table" id="result_5_8" hidden>
+            <thead>
+              <tr>
+                <th
+                  scope="col"
+                  class="table-dark member-cut member-5-prop"
+                  hidden
+                >
+                  Member 5
+                </th>
+                <th
+                  scope="col"
+                  class="table-dark member-cut member-6-prop"
+                  hidden
+                >
+                  Member 6
+                </th>
+                <th
+                  scope="col"
+                  class="table-dark member-cut member-7-prop"
+                  hidden
+                >
+                  Member 7
+                </th>
+                <th
+                  scope="col"
+                  class="table-dark member-cut member-8-prop"
+                  hidden
+                >
+                  Member 8
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="table-light member-cut member-5-prop" hidden>
+                  <span class="fw-bold" id="member-5-mb">0</span>
+                  marked bills
+                </td>
+                <td class="table-light member-cut member-6-prop" hidden>
+                  <span class="fw-bold" id="member-6-mb">0</span>
+                  marked bills
+                </td>
+                <td class="table-light member-cut member-7-prop" hidden>
+                  <span class="fw-bold" id="member-7-mb">0</span>
+                  marked bills
+                </td>
+                <td class="table-light member-cut member-8-prop" hidden>
+                  <span class="fw-bold" id="member-8-mb">0</span>
+                  marked bills
+                </td>
+              </tr>
+              <tr>
+                <td class="table-light member-cut member-5-prop" hidden>
+                  <span class="fw-bold" id="member-5-ib">0</span>
+                  inked bills
+                </td>
+                <td class="table-light member-cut member-6-prop" hidden>
+                  <span class="fw-bold" id="member-6-ib">0</span>
+                  inked bills
+                </td>
+                <td class="table-light member-cut member-7-prop" hidden>
+                  <span class="fw-bold" id="member-7-ib">0</span>
+                  inked bills
+                </td>
+                <td class="table-light member-cut member-8-prop" hidden>
+                  <span class="fw-bold" id="member-8-ib">0</span>
+                  inked bills
+                </td>
+              </tr>
+              <tr>
+                <td class="table-light member-cut member-5-prop" hidden>
+                  Cash: $<span class="fw-bold" id="member-5-c">0</span>
+                </td>
+                <td class="table-light member-cut member-6-prop" hidden>
+                  Cash: $<span class="fw-bold" id="member-6-c">0</span>
+                </td>
+                <td class="table-light member-cut member-7-prop" hidden>
+                  Cash: $<span class="fw-bold" id="member-7-c">0</span>
+                </td>
+                <td class="table-light member-cut member-8-prop" hidden>
+                  Cash: $<span class="fw-bold" id="member-8-c">0</span>
+                </td>
+              </tr>
+              <tr>
+                <td class="table-light member-cut member-5-prop" hidden>
+                  <span class="fw-bold" id="member-5-g">0</span>
+                  gold bars
+                </td>
+                <td class="table-light member-cut member-6-prop" hidden>
+                  <span class="fw-bold" id="member-6-g">0</span>
+                  gold bars
+                </td>
+                <td class="table-light member-cut member-7-prop" hidden>
+                  <span class="fw-bold" id="member-7-g">0</span>
+                  gold bars
+                </td>
+                <td class="table-light member-cut member-8-prop" hidden>
+                  <span class="fw-bold" id="member-8-g">0</span>
+                  gold bars
+                </td>
+              </tr>
+              <tr>
+                <td
+                  class="table-light result-separate member-cut member-5-prop"
+                  hidden
+                >
+                  Payout: $<span class="fw-bold" id="member-5-t">0</span>
+                </td>
+                <td
+                  class="table-light result-separate member-cut member-6-prop"
+                  hidden
+                >
+                  Payout: $<span class="fw-bold" id="member-6-t">0</span>
+                </td>
+                <td
+                  class="table-light result-separate member-cut member-7-prop"
+                  hidden
+                >
+                  Payout: $<span class="fw-bold" id="member-7-t">0</span>
+                </td>
+                <td
+                  class="table-light result-separate member-cut member-8-prop"
+                  hidden
+                >
+                  Payout: $<span class="fw-bold" id="member-8-t">0</span>
+                </td>
+              </tr>
+              <tr>
+                <td class="table-dark member-cut member-5-prop" hidden>
+                  Profit: $<span id="member-5-p">0</span>
+                </td>
+                <td class="table-dark member-cut member-6-prop" hidden>
+                  Profit: $<span id="member-6-p">0</span>
+                </td>
+                <td class="table-dark member-cut member-7-prop" hidden>
+                  Profit: $<span id="member-7-p">0</span>
+                </td>
+                <td class="table-dark member-cut member-8-prop" hidden>
+                  Profit: $<span id="member-8-p">0</span>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
       </div>
       <div id="info" class="content-page" hidden>
+        <h3 class="display-7">Disclaimer</h3>
+        <div class="disclaimer-body">
+          <p>
+            The loot payout, i.e. marked bills, inked bills, gold bars, and cash
+            (cash + others), is <em>not guaranteed</em> to be split properly.
+            However, the <strong>payout</strong> (converted to cash) for each
+            member given inside the split table is <em>guaranteed</em> to be
+            correct. If in some cases the loot split is not properly done,
+            <em>always</em> refer to the
+            <strong>payout</strong>
+            result. The explanation for this can be found
+            <a href="#fallback">below</a>.
+          </p>
+        </div>
         <h3 class="display-7">Use cases</h3>
         <div class="accordion" id="faqs-1">
           <div class="accordion-item">
@@ -716,12 +1088,7 @@
               <div class="accordion-body">
                 <ol class="list-group">
                   <li
-                    class="
-                      list-group-item
-                      d-flex
-                      justify-content-between
-                      align-items-start
-                    "
+                    class="list-group-item d-flex justify-content-between align-items-start"
                   >
                     <div class="ms-2 me-auto">
                       <div class="list-subtitle fw-bold">
@@ -731,12 +1098,7 @@
                     </div>
                   </li>
                   <li
-                    class="
-                      list-group-item
-                      d-flex
-                      justify-content-between
-                      align-items-start
-                    "
+                    class="list-group-item d-flex justify-content-between align-items-start"
                   >
                     <div class="ms-2 me-auto">
                       <div class="list-subtitle fw-bold">Bank class</div>
@@ -750,12 +1112,7 @@
                     </div>
                   </li>
                   <li
-                    class="
-                      list-group-item
-                      d-flex
-                      justify-content-between
-                      align-items-start
-                    "
+                    class="list-group-item d-flex justify-content-between align-items-start"
                   >
                     <div class="ms-2 me-auto">
                       <div class="list-subtitle fw-bold">Investment</div>
@@ -769,12 +1126,7 @@
                     </div>
                   </li>
                   <li
-                    class="
-                      list-group-item
-                      d-flex
-                      justify-content-between
-                      align-items-start
-                    "
+                    class="list-group-item d-flex justify-content-between align-items-start"
                   >
                     <div class="ms-2 me-auto">
                       <div class="list-subtitle fw-bold">Loot payout</div>
@@ -789,6 +1141,10 @@
                       <p>
                         <em>Cash</em>: Enter a number on this field to specify
                         the amount of cash. Type in 0 for none.
+                      </p>
+                      <p>
+                        <em>Gold bars</em>: Enter a number on this field to
+                        specify the number of gold bars. Type in 0 for none.
                       </p>
                       <p>
                         <em>Others</em>: Enter a number on this field to specify
@@ -825,12 +1181,7 @@
               <div class="accordion-body">
                 <ol class="list-group">
                   <li
-                    class="
-                      list-group-item
-                      d-flex
-                      justify-content-between
-                      align-items-start
-                    "
+                    class="list-group-item d-flex justify-content-between align-items-start"
                   >
                     <div class="ms-2 me-auto">
                       <div class="list-subtitle fw-bold">
@@ -840,12 +1191,7 @@
                     </div>
                   </li>
                   <li
-                    class="
-                      list-group-item
-                      d-flex
-                      justify-content-between
-                      align-items-start
-                    "
+                    class="list-group-item d-flex justify-content-between align-items-start"
                   >
                     <div class="ms-2 me-auto">
                       <div class="list-subtitle fw-bold">Bank class</div>
@@ -859,21 +1205,18 @@
                       </p>
                       <p>
                         <em><strong>Important</strong></em
-                        >: For <strong>City Vault</strong> class, due to
-                        thermites being unobtainable through a fixed system,
-                        with no fixed price currently known, selecting
-                        <strong>Custom</strong> investment option is
-                        recommended.
+                        >: For <span class="text-lowervault">Lower Vault</span>,
+                        <span class="text-yacht">Yacht</span>, and
+                        <span class="text-casino">Casino</span> classes, due to
+                        some of the required resources being unobtainable
+                        through a fixed system, with no fixed price currently
+                        known, only <strong>Custom</strong> investment option
+                        can be selected.
                       </p>
                     </div>
                   </li>
                   <li
-                    class="
-                      list-group-item
-                      d-flex
-                      justify-content-between
-                      align-items-start
-                    "
+                    class="list-group-item d-flex justify-content-between align-items-start"
                   >
                     <div class="ms-2 me-auto">
                       <div class="list-subtitle fw-bold">Investment</div>
@@ -882,18 +1225,14 @@
                         This will disable all input fields for investment price.
                         Basically, the amount of investment paid by each member
                         is considered to be equal. Example: If there are
-                        <strong>3</strong> members and <strong>Fleeca</strong>
-                        was selected, each member would then pay $3,333.33.
+                        <strong>3</strong> members and
+                        <strong>Fleeca</strong> was selected, each member would
+                        then pay $<span id="fleeca_avg"></span>.
                       </p>
                     </div>
                   </li>
                   <li
-                    class="
-                      list-group-item
-                      d-flex
-                      justify-content-between
-                      align-items-start
-                    "
+                    class="list-group-item d-flex justify-content-between align-items-start"
                   >
                     <div class="ms-2 me-auto">
                       <div class="list-subtitle fw-bold">Loot payout</div>
@@ -908,6 +1247,10 @@
                       <p>
                         <em>Cash</em>: Enter a number on this field to specify
                         the amount of cash. Type in 0 for none.
+                      </p>
+                      <p>
+                        <em>Gold bars</em>: Enter a number on this field to
+                        specify the number of gold bars. Type in 0 for none.
                       </p>
                       <p>
                         <em>Others</em>: Enter a number on this field to specify
@@ -941,12 +1284,7 @@
               <div class="accordion-body">
                 <ol class="list-group">
                   <li
-                    class="
-                      list-group-item
-                      d-flex
-                      justify-content-between
-                      align-items-start
-                    "
+                    class="list-group-item d-flex justify-content-between align-items-start"
                   >
                     <div class="ms-2 me-auto">
                       <div class="list-subtitle fw-bold">
@@ -956,12 +1294,7 @@
                     </div>
                   </li>
                   <li
-                    class="
-                      list-group-item
-                      d-flex
-                      justify-content-between
-                      align-items-start
-                    "
+                    class="list-group-item d-flex justify-content-between align-items-start"
                   >
                     <div class="ms-2 me-auto">
                       <div class="list-subtitle fw-bold">Bank class</div>
@@ -975,12 +1308,7 @@
                     </div>
                   </li>
                   <li
-                    class="
-                      list-group-item
-                      d-flex
-                      justify-content-between
-                      align-items-start
-                    "
+                    class="list-group-item d-flex justify-content-between align-items-start"
                   >
                     <div class="ms-2 me-auto">
                       <div class="list-subtitle fw-bold">Investment</div>
@@ -993,12 +1321,7 @@
                     </div>
                   </li>
                   <li
-                    class="
-                      list-group-item
-                      d-flex
-                      justify-content-between
-                      align-items-start
-                    "
+                    class="list-group-item d-flex justify-content-between align-items-start"
                   >
                     <div class="ms-2 me-auto">
                       <div class="list-subtitle fw-bold">Loot payout</div>
@@ -1013,6 +1336,10 @@
                       <p>
                         <em>Cash</em>: Enter a number on this field to specify
                         the amount of cash. Type in 0 for none.
+                      </p>
+                      <p>
+                        <em>Gold bars</em>: Enter a number on this field to
+                        specify the number of gold bars. Type in 0 for none.
                       </p>
                       <p>
                         <em>Others</em>: Enter a number on this field to specify
@@ -1122,54 +1449,68 @@
                     <tr>
                       <th
                         scope="col"
-                        class="table-dark text-center text-success"
+                        class="table-dark text-center text-fleeca align-middle"
                       >
                         Fleeca
                       </th>
                       <th
                         scope="col"
-                        class="table-dark text-center text-primary"
+                        class="table-dark text-center text-paleto align-middle"
                       >
                         Paleto
                       </th>
                       <th
                         scope="col"
-                        class="table-dark text-center text-danger"
+                        class="table-dark text-center text-baycity align-middle"
                       >
-                        City Vault
-                        <span class="text-secondary fw-lighter">*</span>
+                        Bay City
                       </th>
                       <th
                         scope="col"
-                        class="table-dark text-center text-warning"
+                        class="table-dark text-center text-jewelry align-middle"
+                        style="width: fit-content"
                       >
                         Jewelry Store
-                        <span class="text-secondary fw-lighter">*</span>
+                      </th>
+                      <th
+                        scope="col"
+                        class="table-dark text-center text-uppervault align-middle"
+                      >
+                        Upper Vault
                       </th>
                     </tr>
                   </thead>
                   <tbody>
                     <tr>
-                      <td class="table-light text-center">$10,000</td>
-                      <td class="table-light text-center">$25,000</td>
-                      <td class="table-light text-center">
-                        $71,000 <span class="text-secondary">*</span>
+                      <td class="table-light text-center align-middle">
+                        $<span name="fleeca_default"></span>
                       </td>
-                      <td class="table-light text-center">
-                        $7,000 <span class="text-secondary">*</span>
+                      <td class="table-light text-center align-middle">
+                        $<span name="paleto_default"></span>
+                      </td>
+                      <td class="table-light text-center align-middle">
+                        $<span name="baycity_default"></span>
+                      </td>
+                      <td class="table-light text-center align-middle">
+                        $<span name="jewelry_default"></span>
+                      </td>
+                      <td class="table-light text-center align-middle">
+                        $<span name="uppervault_default"></span>
                       </td>
                     </tr>
                   </tbody>
                 </table>
                 <p class="text-info">
-                  * As of now, the <strong>City Vault</strong> and
-                  <strong>Jewelry Store</strong> are
-                  <em>not guaranteed</em>
-                  to have a minimum investment required of this value. Due to
-                  thermites being unobtainable through a fixed system, with no
-                  fixed price currently known, it is highly recommended to
-                  select
-                  <strong>Custom</strong> investment option.
+                  * The prices of shungite and thermite used are $<span
+                    name="shungite_default"
+                  ></span>
+                  and $<span name="thermite_default"></span> respectively.
+                  <strong
+                    >The values will change from time to time. If you feel like
+                    they are inaccurate, kindly comment on the existing issue or
+                    post a new issue on the GitHub repo (link at the bottom of
+                    the page). Thank you.</strong
+                  >
                 </p>
               </div>
             </div>
@@ -1204,19 +1545,197 @@
               </div>
             </div>
           </div>
-        </div>
-        <h3 class="display-7">Disclaimer</h3>
-        <div class="disclaimer-body">
-          <p>
-            The loot payout, i.e. marked bills, inked bills, and cash (cash +
-            others), is <em>not guaranteed</em> to be split properly. However,
-            the <strong>payout</strong> (converted to cash) for each member
-            given inside the split table is <em>guaranteed</em> to be correct.
-            If in some cases the loot split is not properly done,
-            <em>always</em> refer to the
-            <strong>payout</strong>
-            result.
-          </p>
+          <div class="accordion-item">
+            <h2 class="accordion-header" id="faqs-2-h-5">
+              <button
+                class="accordion-button fw-bold"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#faqs-2-b-5"
+                aria-expanded="true"
+                aria-controls="faqs-2-b-5"
+              >
+                Loot split
+              </button>
+            </h2>
+            <div
+              class="accordion-collapse collapse show"
+              id="faqs-2-b-5"
+              aria-labelledby="faqs-2-h-5"
+            >
+              <div class="accordion-body">
+                <p>
+                  <strong>Loot split</strong> is the main feature of this tool.
+                  What it does is split the loot equally to the selected number
+                  of heist members. This maps the first 5 kinds of loot into
+                  just 4: <strong>Marked bills</strong>,
+                  <strong>inked bills</strong>, <strong>cash</strong>, and
+                  <strong>gold bars</strong>. With <strong>others</strong> being
+                  calculated together with <strong>cash</strong>.
+                </p>
+                <p>
+                  The split uses a little bit more complicated algorithm than
+                  just simply divide 6 inked bills into 2 people. It has a
+                  priority list of loot that it needs to split first, in this
+                  order: <strong>inked bills</strong> >
+                  <strong>gold bars</strong> > <strong>marked bills</strong> >
+                  <strong>cash</strong>. It then handles the payout for each
+                  member <strong><em>in ascending order</em></strong> (from 1 to
+                  8).
+                </p>
+                <p>
+                  In order to calculate the payout of each member, it then asks
+                  itself:
+                  <em
+                    >How many inked bills would it be if I were to give this
+                    member as many bags as I can to cover most of his/her
+                    payout?</em
+                  >. The answer is pretty straightforward. For example, if a
+                  member's payout is $180,000, and the loot includes 12 bags of
+                  inked bills, then the maximum number of bags he would receive
+                  is 3 bags (worth $150,000). After that, it calculates with the
+                  same question in mind for the next loot in the order of
+                  priority.
+                </p>
+                <h5>Example</h5>
+                <p>
+                  As an example, 3 people did a bank heist on
+                  <span class="text-uppervault">Upper Vault</span>. Successfully
+                  escaping the cops, they would split the loot. The loot
+                  consists of <span class="inv-price">582</span> bags of marked
+                  bills, <span class="inv-price">8</span> bags of inked bills,
+                  <span class="inv-price">20</span> gold bars, and a total of
+                  $<span class="inv-price">15,400</span> in cash. That's $<span
+                    class="inv-price"
+                    >660,900</span
+                  >
+                  in total. And that makes $<span class="inv-price"
+                    >220,300</span
+                  >
+                  for each member. But, the problem is only member 1 paid for
+                  the investment. He paid a total of $<span class="inv-price"
+                    >97,000</span
+                  >
+                  for the resources.
+                </p>
+                <p>
+                  Normally, as a fairplay, each member has to pay the same
+                  amount of investment. Then that would be $<span
+                    class="inv-price"
+                    >97,000</span
+                  >
+                  / <span class="inv-price">3</span> = $<span class="inv-price"
+                    >32,333.33</span
+                  >
+                  for each person. However, because we have member 1 paying
+                  $<span class="inv-price">97,000</span> instead of $<span
+                    class="inv-price"
+                    >32,333.33</span
+                  >, we have to give him $<span class="inv-price"
+                    >64,666.67</span
+                  >
+                  for the extra price he had to pay, adding it to his portion of
+                  payout. Thus, his payout is now $<span class="inv-price"
+                    >284,966.67</span
+                  >. Also, we have to subtract some amount of money from member
+                  2 and member 3, because they paid zero dollars. We have to
+                  subtract $<span class="inv-price">32,333.33</span> each from
+                  their payout, resulting in a total of $<span class="inv-price"
+                    >187,966.67</span
+                  >
+                  for those members.
+                </p>
+                <p>
+                  Very simple so far. Now for the loot split itself. We already
+                  determined the payout for each member. Now we just need to
+                  convert those payouts into loot. This is where the slightly a
+                  little bit more complicated algorithm begins. It is not that
+                  complicated, really. All it has to do is count the maximum
+                  amount of bags of inked bills it can give for member 1, then
+                  the maximum amount of gold bars, then the maximum amount of
+                  bags of marked bills, and lastly the maximum amount of cash if
+                  there is any remaining portion of his payout that has not been
+                  covered. Then it repeats the counting for member 2, and lastly
+                  member 3.
+                </p>
+                <p>
+                  Let's go through that quickly. For member 1, the maximum
+                  amount of bags of inked bills he can get is
+                  <span class="inv-price">5</span> bags (= $<span
+                    class="inv-price"
+                    >250,000</span
+                  >). Can't go higher than that. Now there's $<span
+                    class="inv-price"
+                    >34,966.67</span
+                  >
+                  remaining to be covered. Next, the maximum amount of gold bars
+                  for him is <span class="inv-price">6</span> bars (= $<span
+                    class="inv-price"
+                    >30,000</span
+                  >). The remaining amount of money to be covered is now $<span
+                    class="inv-price"
+                    >4,966.67</span
+                  >. Next, the maximum amount of bags of marked bills for him is
+                  <span class="inv-price">19</span> bags (= $<span
+                    class="inv-price"
+                    >4,750</span
+                  >). Lastly, the remaining amount of cash to be covered is
+                  $<span class="inv-price">216.67</span>. And that can just be
+                  covered in cash.
+                </p>
+                <h5 id="fallback">Fallback</h5>
+                <p>
+                  There are times where the loot split won't be able to be done
+                  properly. It usually happens when the total payout from a
+                  heist is so little compared to the investment from each
+                  member.
+                </p>
+                <p>
+                  For example, 4 people have successfully heisted a Paleto bank.
+                  Member 1, member 2, member 3 paid $<span class="inv-price"
+                    >10,000</span
+                  >, and member 4 only paid $<span class="inv-price">1,000</span
+                  >. The loot consists of
+                  <span class="inv-price">150</span> bags of marked bills,
+                  <span class="inv-price">1</span> bag of inked bills, 0 gold
+                  bars, 0 gems, and only $<span class="inv-price">5,000</span>
+                  in cash. That is a total of $<span class="inv-price"
+                    >92,500</span
+                  >. After a little bit of calculation: member 1, member 2, and
+                  member 3 receive $<span class="inv-price">25,375</span> each,
+                  and member 4 receives $<span class="inv-price">16,375</span>.
+                </p>
+                <p>
+                  Remember the split algorithm? It would count the maximum
+                  amount of bags/bars in the order of priority for each member.
+                  Now, the question is how would it determine the amount of bags
+                  of <strong>inked bills</strong> member 1 receives? That is
+                  right, zero bags. Since the payout for member 1 is only $<span
+                    class="inv-price"
+                    >25,375</span
+                  >, while the value of 1 bag of inked bills is $<span
+                    class="inv-price"
+                    >50,000</span
+                  >, there's no way he receives even 1 bag. But then, what about
+                  member 2? What about member 3 and 4? Well, they receive
+                  <strong>zero</strong> bags as well. Just the same case as
+                  member 1. But, we still have 1 bag of inked bills left to be
+                  given. Which member should we give the bag to? Now, that is
+                  your choice.
+                </p>
+                <p>
+                  As a fallback to this matter, you should
+                  <strong><em>always</em></strong> refer to the
+                  <strong>Payout</strong> values in the split table. They give
+                  you accurate numbers of how much you should pay each member.
+                  If there is any form of loot that just cannot be given (just
+                  like the example above), best way is to just let them dry
+                  first so they become cash, then take an appropriate amount to
+                  cover each member's payout.
+                </p>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </main>
@@ -1253,5 +1772,6 @@
     crossorigin="anonymous"
   ></script>
   <script src="js/index.js"></script>
+  <script src="js/default.js"></script>
   <script src="js/utils.js"></script>
 </html>

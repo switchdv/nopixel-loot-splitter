@@ -2,7 +2,12 @@
   margin-bottom: 1.5rem;
 }
 
-.accordion:not(:last-child) {
+.disclaimer-body {
+  color: #fff;
+  margin-bottom: 3.5rem;
+}
+
+.accordion {
   margin-bottom: 3.5rem;
 }
 
@@ -85,10 +90,6 @@
 
 .list-subtitle ~ p {
   margin-bottom: 0.25rem;
-}
-
-.disclaimer-body {
-  color: #fff;
 }
 
 @media (max-width: 510px) {

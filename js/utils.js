@@ -66,32 +66,46 @@ const defaultPopover = new bootstrap.Popover(defaultEl, {
         </span>
       </div>
       <div>
-        <div class="row row-cols-4 mb-2">
-          <div class="col-sm-3 text-center">
-            <span class="text-success">Fleeca</span>
+        <div class="row row-cols-5 mb-2 g-0">
+          <div class="col text-center my-auto">
+            <span class="text-fleeca">Fleeca</span>
           </div>
-          <div class="col-sm-3 text-center">
-            <span class="text-primary">Paleto</span>
+          <div class="col text-center my-auto">
+            <span class="text-paleto">Paleto</span>
           </div>
-          <div class="col-sm-3 text-center">
-            <span class="text-danger">Vault</span>
+          <div class="col text-center my-auto">
+            <span class="text-baycity">Bay City</span>
           </div>
-          <div class="col-sm-3 text-center">
-            <span class="text-warning">Jewelry</span>
+          <div class="col text-center my-auto">
+            <span class="text-jewelry">Jewelry Store</span>
           </div>
-        </div>
-        <div class="row row-cols-4 mb-2">
-          <div class="col-sm-3 text-center">
-            <strong>$10,000</strong>
+          <div class="col text-center my-auto">
+            <span class="text-uppervault">Upper Vault</span>
           </div>
-          <div class="col-sm-3 text-center">
-            <strong>$25,000</strong>
+          <div class="col text-center my-auto">
+            <strong>$${numberWithCommas(
+              getDefaultInvestmentByBankClass("fleeca")
+            )}</strong>
           </div>
-          <div class="col-sm-3 text-center">
-            <strong>$71,000</strong>
+          <div class="col text-center my-auto">
+            <strong>$${numberWithCommas(
+              getDefaultInvestmentByBankClass("paleto")
+            )}</strong>
           </div>
-          <div class="col-sm-3 text-center">
-            <strong>$7,000</strong>
+          <div class="col text-center my-auto">
+            <strong>$${numberWithCommas(
+              getDefaultInvestmentByBankClass("bay-city")
+            )}</strong>
+          </div>
+          <div class="col text-center my-auto">
+            <strong>$${numberWithCommas(
+              getDefaultInvestmentByBankClass("jewelry")
+            )}</strong>
+              </div>
+          <div class="col text-center my-auto">
+            <strong>$${numberWithCommas(
+              getDefaultInvestmentByBankClass("upper-vault")
+            )}</strong>
           </div>
         </div>
       </div>

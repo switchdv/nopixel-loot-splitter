@@ -44,6 +44,62 @@ footer {
   color: #278ea5 !important;
 }
 
+.text-fleeca {
+  color: #a5e1ad !important;
+}
+
+.text-paleto {
+  color: #427df5 !important;
+}
+
+.text-baycity {
+  color: #5f3b23 !important;
+}
+
+.text-jewelry {
+  color: #ffc107 !important;
+}
+
+.text-uppervault {
+  color: #ba135d !important;
+}
+
+.text-lowervault {
+  color: #f7ea78 !important;
+}
+
+.text-yacht {
+  color: #69d4f5 !important;
+}
+
+.text-casino {
+  color: #534b57 !important;
+}
+
+.text-shungite {
+  color: #fa80fa73 !important;
+}
+
+.text-thermite {
+  color: #f8483b65 !important;
+}
+
+.text-magnet {
+  color: #7955b3a2 !important;
+}
+
+.text-c4 {
+  color: #fa8322a2 !important;
+}
+
+.text-pixelpad {
+  color: #38fc90b9 !important;
+}
+
+.inv-price {
+  color: #00f8b9;
+}
+
 #homeNav.nav-link,
 #infoNav.nav-link {
   color: #278ea5;
@@ -90,10 +146,6 @@ a:hover {
   color: #278ea5;
 }
 
-#shungite {
-  color: #00f8b9;
-}
-
 label {
   color: white;
 }
@@ -130,7 +182,7 @@ label[name="fourthParamLabel"] {
 }
 
 .form-check {
-  margin-bottom: 0px;
+  margin-bottom: 1rem;
 }
 
 .form-check-input {
@@ -204,10 +256,12 @@ label[name="fourthParamLabel"] {
 }
 
 .alert > svg {
+  margin-top: 0.2rem;
   margin-right: 0.5rem;
 }
 
 .alert-primary {
+  font-size: 0.8rem;
   color: #278ea5;
   background-color: inherit;
   border: none;

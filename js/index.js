@@ -5,6 +5,9 @@ const numOfMembersOptions = document.getElementsByName("firstParam");
 
 const shungiteElement = document.getElementById("shungite");
 const thermiteElement = document.getElementById("thermite");
+const magnetElement = document.getElementById("magnet");
+const c4Element = document.getElementById("c4");
+const pixelPadElement = document.getElementById("pixelpad");
 
 const bankClassOptions = document.getElementsByName("secondParam");
 
@@ -27,6 +30,7 @@ const payout = {
   markedBags: 0,
   inkedBags: 0,
   cash: 0,
+  goldBars: 0,
   others: 0,
 };
 
@@ -181,79 +185,135 @@ const updateNumOfMembers = () => {
   if (numOfMembersOptions[3] && numOfMembersOptions[3].checked) {
     numOfMembers = parseInt(numOfMembersOptions[3].value);
   }
+  if (numOfMembersOptions[4] && numOfMembersOptions[4].checked) {
+    numOfMembers = parseInt(numOfMembersOptions[4].value);
+  }
+  if (numOfMembersOptions[5] && numOfMembersOptions[5].checked) {
+    numOfMembers = parseInt(numOfMembersOptions[5].value);
+  }
+  if (numOfMembersOptions[6] && numOfMembersOptions[6].checked) {
+    numOfMembers = parseInt(numOfMembersOptions[6].value);
+  }
+  if (numOfMembersOptions[7] && numOfMembersOptions[7].checked) {
+    numOfMembers = parseInt(numOfMembersOptions[7].value);
+  }
 };
 
-const getShungitePoints = () => {
+const getShungitePoints = (bank = null) => {
+  if (bank != null) {
+    return getInvPointsByBankClass(bank, "shungite");
+  }
+
   if (bankClassOptions[0].checked) {
     return 100;
   }
   if (bankClassOptions[1].checked) {
     return 250;
   }
-  if (bankClassOptions[2].checked) {
+  if (bankClassOptions[4].checked) {
     return 500;
+  }
+  if (bankClassOptions[5].checked) {
+    return 750;
   }
 
   return 0;
 };
 
-const getThermitePoints = () => {
+const getThermitePoints = (bank = null) => {
+  if (bank != null) {
+    return getInvPointsByBankClass(bank, "thermite");
+  }
+
+  if (
+    bankClassOptions[0].checked ||
+    bankClassOptions[1].checked ||
+    bankClassOptions[3].checked
+  ) {
+    return 1;
+  }
+
   if (bankClassOptions[2].checked) {
+    return 2;
+  }
+
+  if (bankClassOptions[4].checked || bankClassOptions[7].checked) {
     return 3;
   }
-  if (bankClassOptions[3].checked) {
+
+  return 0;
+};
+
+const getMagnetPoints = (bank = null) => {
+  if (bank != null) {
+    return getInvPointsByBankClass(bank, "magnet");
+  }
+
+  if (bankClassOptions[7].checked) {
+    return 4;
+  }
+
+  return 0;
+};
+
+const getC4Points = (bank = null) => {
+  if (bank != null) {
+    return getInvPointsByBankClass(bank, "c4");
+  }
+
+  if (bankClassOptions[5].checked) {
+    return 1;
+  }
+
+  if (bankClassOptions[7].checked) {
+    return 2;
+  }
+
+  return 0;
+};
+
+const getPixelPadPoints = (bank = null) => {
+  if (bank != null) {
+    return getInvPointsByBankClass(bank, "pixelpad");
+  }
+
+  if (bankClassOptions[6].checked) {
     return 1;
   }
 
   return 0;
 };
 
-const getBankClass = () => {
-  var bankClass = 1;
-  bankClassOptions.forEach((bankClassOption) => {
-    if (bankClassOption.checked) {
-      bankClass = parseInt(bankClassOption.value);
-    }
-  });
-
-  return bankClass;
-};
-
-const numberWithCommas = (num) => {
-  return num.toString().replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ",");
-};
-
-const roundDecimals = (num, decimals) => {
-  return (
-    Math.round((num + Number.EPSILON) * Math.pow(10, decimals)) /
-    Math.pow(10, decimals)
-  );
-};
-
-const convertMarkedBillToCash = (bags) => {
-  return bags * 250;
-};
-
-const convertInkedBillToCash = (bags) => {
-  return bags * 50000;
-};
-
 const convertMemberPayoutToCash = (memberPayout) => {
   return (
     convertMarkedBillToCash(memberPayout.markedBags) +
     convertInkedBillToCash(memberPayout.inkedBags) +
+    convertGoldBarToCash(memberPayout.goldBars) +
     memberPayout.cash
   );
 };
 
 const getDefaultInvestment = () => {
-  return getShungitePoints() * 100 + getThermitePoints() * 7000;
+  return (
+    getShungitePoints() * 100 +
+    getThermitePoints() * 6000 +
+    getMagnetPoints() * 6000 +
+    getC4Points() * 25000
+  );
+};
+
+const getDefaultInvestmentByBankClass = (bank) => {
+  return (
+    getShungitePoints(bank) * 100 +
+    getThermitePoints(bank) * 6000 +
+    getMagnetPoints(bank) * 6000 +
+    getC4Points(bank) * 25000
+  );
 };
 
 const getTotalInvestment = () => {
   if (investmentOption1.checked) {
-    const totalPrice = getDefaultInvestment();
-    return totalPrice;
+    return getDefaultInvestment();
   }
 
   var total = 0;
@@ -268,10 +328,12 @@ const getTotalPayout = () => {
   var markedBags = payout.markedBags || 0;
   var inkedBags = payout.inkedBags || 0;
   var cash = payout.cash || 0;
+  var goldBars = payout.goldBars || 0;
   var otherPayout = payout.others || 0;
   var totalPayout =
     convertMarkedBillToCash(markedBags) +
     convertInkedBillToCash(inkedBags) +
+    convertGoldBarToCash(goldBars) +
     cash +
     otherPayout;
 
@@ -291,7 +353,8 @@ const showTotalPayout = () => {
 };
 
 const showMemberCut = (cuts) => {
-  document.getElementById("result").removeAttribute("hidden");
+  document.getElementById("result_1_4").removeAttribute("hidden");
+  document.getElementById("result_5_8").removeAttribute("hidden");
 
   const memberCutList = document.querySelectorAll(".member-cut");
   memberCutList.forEach((memberEl) => {
@@ -323,6 +386,11 @@ const showMemberCut = (cuts) => {
       roundDecimals(cash, 2)
     );
 
+    const gId = "member-" + (i + 1) + "-g";
+    document.getElementById(gId).innerHTML = numberWithCommas(
+      cuts[member].goldBars
+    );
+
     const tId = "member-" + (i + 1) + "-t";
     const cut = convertMemberPayoutToCash(cuts[member]);
     document.getElementById(tId).innerHTML = numberWithCommas(
@@ -352,6 +420,7 @@ const splitLoot = () => {
   var payoutPerMember = totalPayout / n;
   var pMarkedBags = payout.markedBags;
   var pInkedBags = payout.inkedBags;
+  var pGoldBars = payout.goldBars;
   var pCash = payout.cash + payout.others;
   const cuts = {};
 
@@ -360,6 +429,7 @@ const splitLoot = () => {
     cuts[member] = {};
     cuts[member].markedBags = 0;
     cuts[member].inkedBags = 0;
+    cuts[member].goldBars = 0;
     cuts[member].cash = 0;
 
     let memberInv;
@@ -378,6 +448,14 @@ const splitLoot = () => {
     cuts[member].inkedBags += bags;
     cuts[member].cash -= convertInkedBillToCash(bags);
     pInkedBags -= bags;
+
+    var bars = Math.floor(cuts[member].cash / 5000);
+    if (bars > pGoldBars) {
+      bars = pGoldBars;
+    }
+    cuts[member].goldBars += bars;
+    cuts[member].cash -= convertGoldBarToCash(bars);
+    pGoldBars -= bars;
 
     bags = Math.floor(cuts[member].cash / 250);
     if (bags > pMarkedBags) {
@@ -427,13 +505,34 @@ bankClassOptions.forEach((bankClass) => {
     if (bankClass.checked) {
       shungiteElement.innerHTML = numberWithCommas(getShungitePoints());
       thermiteElement.innerHTML = numberWithCommas(getThermitePoints());
+      magnetElement.innerHTML = numberWithCommas(getMagnetPoints());
+      c4Element.innerHTML = numberWithCommas(getC4Points());
+      pixelPadElement.innerHTML = numberWithCommas(getPixelPadPoints());
 
       showTotalInvestment();
+
+      switch (bankClass.value.toLowerCase()) {
+        case "lower-vault":
+        case "lower vault":
+        case "lower_vault":
+        case "lowervault":
+        case "yacht":
+        case "casino":
+          investmentOption2.checked = true;
+          investmentOption1.disabled = true;
+          customInvestmentEvent();
+          break;
+        default:
+          if (investmentOption1.disabled) {
+            investmentOption1.removeAttribute("disabled");
+          }
+          break;
+      }
     }
   });
 });
 
-investmentOption1.addEventListener("change", () => {
+const defaultInvestmentEvent = () => {
   if (investmentOption1.checked) {
     muteFirstNElements(investmentLabels, numOfMembers);
     disableFirstNInputElements(investmentInputElements, numOfMembers);
@@ -444,9 +543,9 @@ investmentOption1.addEventListener("change", () => {
 
     showTotalInvestment();
   }
-});
+};
 
-investmentOption2.addEventListener("change", () => {
+const customInvestmentEvent = () => {
   if (investmentOption2.checked) {
     unmuteFirstNElements(investmentLabels, numOfMembers);
     enableFirstNInputElements(investmentInputElements, numOfMembers);
@@ -461,7 +560,11 @@ investmentOption2.addEventListener("change", () => {
 
     showTotalInvestment();
   }
-});
+};
+
+investmentOption1.addEventListener("change", defaultInvestmentEvent);
+
+investmentOption2.addEventListener("change", customInvestmentEvent);
 
 investmentInputElements.forEach((element) => {
   element.addEventListener("blur", () => {
@@ -506,6 +609,8 @@ payoutInputElements.forEach((element) => {
     } else if (element.id === "fifthParam3") {
       payout.cash = parseInt(element.value || 0);
     } else if (element.id === "fifthParam4") {
+      payout.goldBars = parseInt(element.value || 0);
+    } else if (element.id === "fifthParam5") {
       payout.others = parseInt(element.value || 0);
     }
     showTotalPayout();
@@ -518,6 +623,7 @@ splitButton.addEventListener("click", () => {
   if (!isValid) {
     return;
   }
+  location.href = "#result_1_4";
   const cuts = splitLoot();
   showMemberCut(cuts);
 });

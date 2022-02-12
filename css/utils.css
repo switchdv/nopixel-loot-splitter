@@ -83,3 +83,7 @@
 .svg-tip:focus {
   outline: none;
 }
+
+.breadcrumb-item + .breadcrumb-item::before {
+  content: var(--bs-breadcrumb-divider, "|");
+}
