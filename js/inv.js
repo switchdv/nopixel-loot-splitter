@@ -18,7 +18,7 @@ const convertInkedBillToCash = (bags) => {
 };
 
 const convertGoldBarToCash = (bars) => {
-  return bars * 5000;
+  return bars * 1500;
 };
 
 const getInvPointsByBankClass = (bank, inv) => {
