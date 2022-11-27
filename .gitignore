@@ -1,5 +1,8 @@
 /static
 
+# test files
+*test.js
+
 title.html
 index-backup.html
 docs-backup.css

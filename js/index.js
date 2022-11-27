@@ -18,6 +18,7 @@ const investmentLabels = document.getElementsByName("fourthParamLabel");
 const investmentInputElements = document.getElementsByName("fourthParam");
 
 const payoutInputElements = document.getElementsByName("fifthParam");
+const payoutValueElements = document.getElementsByName("sixthParam");
 
 const splitButton = document.getElementById("splitButton");
 
@@ -29,10 +30,20 @@ const memberInvList = [];
 const payout = {
   markedBags: 0,
   inkedBags: 0,
-  cash: 0,
   goldBars: 0,
+  cash: 0,
   others: 0,
 };
+
+const payoutValues = {
+  markedBag: 250,
+  inkedBag: 50000,
+  goldBar: 1500,
+};
+
+const TYPE_MARKED_BILL = "marked_bill";
+const TYPE_INKED_BILL = "inked_bill";
+const TYPE_GOLD_BAR = "gold_bar";
 
 const showPage = (navId) => {
   const pageElement = document.getElementById(navId.replace("Nav", ""));
@@ -99,12 +110,13 @@ const emphasizeInputGroup = (inputElement) => {
 
   if (!hasInvalidClass) {
     addClassToInputGroup(inputElement, "input-group-focus");
+    return;
+  }
+
+  if (inputElement.value === "") {
+    addClassToInputGroup(inputElement, "not-valid-focus");
   } else {
-    if (inputElement.value === "") {
-      addClassToInputGroup(inputElement, "not-valid-focus");
-    } else {
-      addClassToInputGroup(inputElement, "being-validated-focus");
-    }
+    addClassToInputGroup(inputElement, "being-validated-focus");
   }
 };
 
@@ -126,14 +138,16 @@ const deemphasizeInputGroup = (inputElement) => {
 };
 
 const autoEmphasizeOnFill = (inputElement) => {
-  const inputText =
-    inputElement.parentElement.querySelector(".input-group-text");
+  const inputTextElements =
+    inputElement.parentElement.querySelectorAll(".input-group-text");
 
-  if (inputElement.value !== "") {
-    inputText.classList.add("input-group-text-not-empty");
-  } else {
-    inputText.classList.remove("input-group-text-not-empty");
-  }
+  inputTextElements.forEach((inputText) => {
+    if (inputElement.value !== "") {
+      inputText.classList.add("input-group-text-not-empty");
+    } else {
+      inputText.classList.remove("input-group-text-not-empty");
+    }
+  });
 };
 
 const updateRequiredInputElementList = () => {
@@ -327,8 +341,8 @@ const getTotalInvestment = () => {
 const getTotalPayout = () => {
   var markedBags = payout.markedBags || 0;
   var inkedBags = payout.inkedBags || 0;
-  var cash = payout.cash || 0;
   var goldBars = payout.goldBars || 0;
+  var cash = payout.cash || 0;
   var otherPayout = payout.others || 0;
   var totalPayout =
     convertMarkedBillToCash(markedBags) +
@@ -424,6 +438,13 @@ const splitLoot = () => {
   var pCash = payout.cash + payout.others;
   const cuts = {};
 
+  const sortedPayoutValues = sortPayoutValues();
+  const sortedPayoutValuesArray = [
+    sortedPayoutValues.largest,
+    sortedPayoutValues.middle,
+    sortedPayoutValues.smallest,
+  ];
+
   for (let i = 0; i < n; i++) {
     const member = "member" + (i + 1);
     cuts[member] = {};
@@ -441,29 +462,40 @@ const splitLoot = () => {
 
     cuts[member].cash = memberInv - pricePerMember + payoutPerMember;
 
-    var bags = Math.floor(cuts[member].cash / 50000);
-    if (bags > pInkedBags) {
-      bags = pInkedBags;
-    }
-    cuts[member].inkedBags += bags;
-    cuts[member].cash -= convertInkedBillToCash(bags);
-    pInkedBags -= bags;
-
-    var bars = Math.floor(cuts[member].cash / 5000);
-    if (bars > pGoldBars) {
-      bars = pGoldBars;
-    }
-    cuts[member].goldBars += bars;
-    cuts[member].cash -= convertGoldBarToCash(bars);
-    pGoldBars -= bars;
-
-    bags = Math.floor(cuts[member].cash / 250);
-    if (bags > pMarkedBags) {
-      bags = pMarkedBags;
-    }
-    cuts[member].markedBags += bags;
-    cuts[member].cash -= convertMarkedBillToCash(bags);
-    pMarkedBags -= bags;
+    for (let i = 0; i < sortedPayoutValuesArray.length; i++) {
+      const payoutValueObject = sortedPayoutValuesArray[i];
+      switch (payoutValueObject.type) {
+        case TYPE_INKED_BILL:
+          var bags = Math.floor(cuts[member].cash / payoutValues.inkedBag);
+          if (bags > pInkedBags) {
+            bags = pInkedBags;
+          }
+          cuts[member].inkedBags += bags;
+          cuts[member].cash -= convertInkedBillToCash(bags);
+          pInkedBags -= bags;
+          break;
+        case TYPE_GOLD_BAR:
+          var bars = Math.floor(cuts[member].cash / payoutValues.goldBar);
+          if (bars > pGoldBars) {
+            bars = pGoldBars;
+          }
+          cuts[member].goldBars += bars;
+          cuts[member].cash -= convertGoldBarToCash(bars);
+          pGoldBars -= bars;
+          break;
+        case TYPE_MARKED_BILL:
+          var bags = Math.floor(cuts[member].cash / payoutValues.markedBag);
+          if (bags > pMarkedBags) {
+            bags = pMarkedBags;
+          }
+          cuts[member].markedBags += bags;
+          cuts[member].cash -= convertMarkedBillToCash(bags);
+          pMarkedBags -= bags;
+          break;
+        default:
+          break;
+      }
+    };
   }
 
   return cuts;
@@ -599,20 +631,65 @@ payoutInputElements.forEach((element) => {
 
   element.addEventListener("input", () => {
     autoEmphasizeOnFill(element);
+
     if (hasClassNameWithinInputGroup(element, "not-valid")) {
       toggleValidationStyleOnInputChange(element);
     }
-    if (element.id === "fifthParam1") {
-      payout.markedBags = parseInt(element.value || 0);
-    } else if (element.id === "fifthParam2") {
-      payout.inkedBags = parseInt(element.value || 0);
-    } else if (element.id === "fifthParam3") {
-      payout.cash = parseInt(element.value || 0);
-    } else if (element.id === "fifthParam4") {
-      payout.goldBars = parseInt(element.value || 0);
-    } else if (element.id === "fifthParam5") {
-      payout.others = parseInt(element.value || 0);
+
+    switch (element.id) {
+      case "fifthParam1":
+        payout.markedBags = parseInt(element.value || 0);
+        break;
+      case "fifthParam2":
+        payout.inkedBags = parseInt(element.value || 0);
+        break;
+      case "fifthParam3":
+        payout.goldBars = parseInt(element.value || 0);
+        break;
+      case "fifthParam4":
+        payout.cash = parseInt(element.value || 0);
+        break;
+      case "fifthParam5":
+        payout.others = parseInt(element.value || 0);
+        break;
+      default:
+        break;
     }
+
+    showTotalPayout();
+  });
+});
+
+payoutValueElements.forEach((element) => {
+  element.addEventListener("blur", () => {
+    deemphasizeInputGroup(element);
+  });
+
+  element.addEventListener("focus", () => {
+    emphasizeInputGroup(element);
+  });
+
+  element.addEventListener("input", () => {
+    autoEmphasizeOnFill(element);
+
+    if (hasClassNameWithinInputGroup(element, "not-valid")) {
+      toggleValidationStyleOnInputChange(element);
+    }
+
+    switch (element.id) {
+      case "sixthParam1":
+        payoutValues.markedBag = parseInt(element.value || 0);
+        break;
+      case "sixthParam2":
+        payoutValues.inkedBag = parseInt(element.value || 0);
+        break;
+      case "sixthParam3":
+        payoutValues.goldBar = parseInt(element.value || 0);
+        break;
+      default:
+        break;
+    }
+
     showTotalPayout();
   });
 });
@@ -627,3 +704,77 @@ splitButton.addEventListener("click", () => {
   const cuts = splitLoot();
   showMemberCut(cuts);
 });
+
+const sortPayoutValues = () => {
+  var sortedPayoutValues = {
+    smallest: {
+      type: TYPE_MARKED_BILL,
+      value: payoutValues.markedBag,
+    },
+    middle: {
+      type: TYPE_GOLD_BAR,
+      value: payoutValues.goldBar,
+    },
+    largest: {
+      type: TYPE_INKED_BILL,
+      value: payoutValues.inkedBag,
+    },
+  };
+
+  if (
+    payoutValues.inkedBag >= payoutValues.goldBar &&
+    payoutValues.inkedBag >= payoutValues.markedBag
+  ) {
+    sortedPayoutValues.largest.type = TYPE_INKED_BILL;
+    sortedPayoutValues.largest.value = payoutValues.inkedBag;
+  } else if (
+    payoutValues.goldBar > payoutValues.inkedBag &&
+    payoutValues.inkedBag >= payoutValues.markedBag
+  ) {
+    sortedPayoutValues.largest.type = TYPE_GOLD_BAR;
+    sortedPayoutValues.largest.value = payoutValues.goldBar;
+  } else {
+    sortedPayoutValues.largest.type = TYPE_MARKED_BILL;
+    sortedPayoutValues.largest.value = payoutValues.markedBag;
+  }
+
+  if (sortedPayoutValues.largest.type === TYPE_INKED_BILL) {
+    if (payoutValues.goldBar >= payoutValues.markedBag) {
+      sortedPayoutValues.middle.type = TYPE_GOLD_BAR;
+      sortedPayoutValues.middle.value = payoutValues.goldBar;
+      sortedPayoutValues.smallest.type = TYPE_MARKED_BILL;
+      sortedPayoutValues.smallest.value = payoutValues.markedBag;
+    } else {
+      sortedPayoutValues.middle.type = TYPE_MARKED_BILL;
+      sortedPayoutValues.middle.value = payoutValues.markedBag;
+      sortedPayoutValues.smallest.type = TYPE_GOLD_BAR;
+      sortedPayoutValues.smallest.value = payoutValues.goldBar;
+    }
+  } else if (sortedPayoutValues.largest.type === TYPE_GOLD_BAR) {
+    if (payoutValues.inkedBag >= payoutValues.markedBag) {
+      sortedPayoutValues.middle.type = TYPE_INKED_BILL;
+      sortedPayoutValues.middle.value = payoutValues.inkedBag;
+      sortedPayoutValues.smallest.type = TYPE_MARKED_BILL;
+      sortedPayoutValues.smallest.value = payoutValues.markedBag;
+    } else {
+      sortedPayoutValues.middle.type = TYPE_MARKED_BILL;
+      sortedPayoutValues.middle.value = payoutValues.markedBag;
+      sortedPayoutValues.smallest.type = TYPE_INKED_BILL;
+      sortedPayoutValues.smallest.value = payoutValues.inkedBag;
+    }
+  } else {
+    if (payoutValues.inkedBag >= payoutValues.goldBar) {
+      sortedPayoutValues.middle.type = TYPE_INKED_BILL;
+      sortedPayoutValues.middle.value = payoutValues.inkedBag;
+      sortedPayoutValues.smallest.type = TYPE_GOLD_BAR;
+      sortedPayoutValues.smallest.value = payoutValues.goldBar;
+    } else {
+      sortedPayoutValues.middle.type = TYPE_GOLD_BAR;
+      sortedPayoutValues.middle.value = payoutValues.goldBar;
+      sortedPayoutValues.smallest.type = TYPE_INKED_BILL;
+      sortedPayoutValues.smallest.value = payoutValues.inkedBag;
+    }
+  }
+
+  return sortedPayoutValues;
+};

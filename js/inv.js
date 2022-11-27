@@ -10,15 +10,15 @@ const roundDecimals = (num, decimals) => {
 };
 
 const convertMarkedBillToCash = (bags) => {
-  return bags * 250;
+  return bags * payoutValues.markedBag;
 };
 
 const convertInkedBillToCash = (bags) => {
-  return bags * 50000;
+  return bags * payoutValues.inkedBag;
 };
 
 const convertGoldBarToCash = (bars) => {
-  return bars * 5000;
+  return bars * payoutValues.goldBar;
 };
 
 const getInvPointsByBankClass = (bank, inv) => {

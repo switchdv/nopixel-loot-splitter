@@ -448,7 +448,6 @@
                           name="fourthParam"
                           id="fourthParam1"
                           placeholder="0"
-                          val="0"
                           required
                         />
                       </div>
@@ -470,7 +469,6 @@
                           name="fourthParam"
                           id="fourthParam2"
                           placeholder="0"
-                          val="0"
                           required
                         />
                       </div>
@@ -492,7 +490,6 @@
                           name="fourthParam"
                           id="fourthParam3"
                           placeholder="0"
-                          val="0"
                           required
                         />
                       </div>
@@ -514,7 +511,6 @@
                           name="fourthParam"
                           id="fourthParam4"
                           placeholder="0"
-                          val="0"
                           required
                         />
                       </div>
@@ -536,7 +532,6 @@
                           name="fourthParam"
                           id="fourthParam5"
                           placeholder="0"
-                          val="0"
                           disabled
                         />
                       </div>
@@ -558,7 +553,6 @@
                           name="fourthParam"
                           id="fourthParam6"
                           placeholder="0"
-                          val="0"
                           disabled
                         />
                       </div>
@@ -580,7 +574,6 @@
                           name="fourthParam"
                           id="fourthParam7"
                           placeholder="0"
-                          val="0"
                           disabled
                         />
                       </div>
@@ -602,7 +595,6 @@
                           name="fourthParam"
                           id="fourthParam8"
                           placeholder="0"
-                          val="0"
                           disabled
                         />
                       </div>
@@ -622,11 +614,11 @@
               <div class="card">
                 <div class="card-header">Loot payout</div>
                 <div class="card-body d-flex">
-                  <div class="row row-cols-2 mb-2">
-                    <label for="fifthParam1" class="col-sm-3 col-form-label"
+                  <div class="row row-cols-4 mb-2">
+                    <label for="fifthParam1" class="col-sm-2 col-form-label"
                       >Marked bills</label
                     >
-                    <div class="col-sm-9">
+                    <div class="col-sm-5">
                       <div class="input-group">
                         <input
                           type="text"
@@ -634,18 +626,32 @@
                           name="fifthParam"
                           id="fifthParam1"
                           placeholder="0"
-                          val="0"
                           required
                         />
                         <span class="input-group-text fw-normal">bag(s)</span>
                       </div>
                     </div>
+                    <div class="col-sm-5 ps-0">
+                      <div class="input-group">
+                        <span class="input-group-text input-group-text-not-empty">$</span>
+                        <input
+                          type="text"
+                          class="form-control"
+                          name="sixthParam"
+                          id="sixthParam1"
+                          placeholder="250"
+                          value="250"
+                          required
+                        />
+                        <span class="input-group-text fw-normal input-group-text-not-empty">/bag</span>
+                      </div>
+                    </div>
                   </div>
-                  <div class="row row-cols-2 mb-2">
-                    <label for="fifthParam2" class="col-sm-3 col-form-label"
+                  <div class="row row-cols-4 mb-2">
+                    <label for="fifthParam2" class="col-sm-2 col-form-label"
                       >Inked bills</label
                     >
-                    <div class="col-sm-9">
+                    <div class="col-sm-5">
                       <div class="input-group">
                         <input
                           type="text"
@@ -653,56 +659,83 @@
                           name="fifthParam"
                           id="fifthParam2"
                           placeholder="0"
-                          val="0"
                           required
                         />
                         <span class="input-group-text fw-normal">bag(s)</span>
                       </div>
                     </div>
-                  </div>
-                  <div class="row row-cols-2 mb-2">
-                    <label for="fifthParam3" class="col-sm-3 col-form-label"
-                      >Cash</label
-                    >
-                    <div class="col-sm-9">
+                    <div class="col-sm-5 ps-0">
                       <div class="input-group">
-                        <span class="input-group-text">$</span>
+                        <span class="input-group-text input-group-text-not-empty">$</span>
+                        <input
+                          type="text"
+                          class="form-control"
+                          name="sixthParam"
+                          id="sixthParam2"
+                          placeholder="50000"
+                          value="50000"
+                          required
+                        />
+                        <span class="input-group-text fw-normal input-group-text-not-empty">/bag</span>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row row-cols-4 mb-2">
+                    <label for="fifthParam3" class="col-sm-2 col-form-label"
+                      >Gold</label
+                    >
+                    <div class="col-sm-5">
+                      <div class="input-group">
                         <input
                           type="text"
                           class="form-control"
                           name="fifthParam"
                           id="fifthParam3"
                           placeholder="0"
-                          val="0"
                           required
                         />
+                        <span class="input-group-text fw-normal">bar(s)</span>
+                      </div>
+                    </div>
+                    <div class="col-sm-5 ps-0">
+                      <div class="input-group">
+                        <span class="input-group-text input-group-text-not-empty">$</span>
+                        <input
+                          type="text"
+                          class="form-control"
+                          name="sixthParam"
+                          id="sixthParam3"
+                          placeholder="1500"
+                          value="1500"
+                          required
+                        />
+                        <span class="input-group-text fw-normal input-group-text-not-empty">/bar</span>
                       </div>
                     </div>
                   </div>
-                  <div class="row row-cols-2 mb-2">
-                    <label for="fifthParam4" class="col-sm-3 col-form-label"
-                      >Gold</label
+                  <div class="row row-cols-4 mb-2">
+                    <label for="fifthParam4" class="col-sm-2 col-form-label"
+                      >Cash</label
                     >
-                    <div class="col-sm-9">
+                    <div class="col-sm-10">
                       <div class="input-group">
+                        <span class="input-group-text">$</span>
                         <input
                           type="text"
                           class="form-control"
                           name="fifthParam"
                           id="fifthParam4"
                           placeholder="0"
-                          val="0"
                           required
                         />
-                        <span class="input-group-text fw-normal">bar(s)</span>
                       </div>
                     </div>
                   </div>
-                  <div class="row row-cols-2 mb-4">
-                    <label for="fifthParam5" class="col-sm-3 col-form-label"
+                  <div class="row row-cols-4 mb-4">
+                    <label for="fifthParam5" class="col-sm-2 col-form-label"
                       >Others
                     </label>
-                    <div class="col-sm-9">
+                    <div class="col-sm-10">
                       <div class="input-group">
                         <span class="input-group-text">$</span>
                         <input
@@ -711,7 +744,6 @@
                           name="fifthParam"
                           id="fifthParam5"
                           placeholder="0"
-                          val="0"
                           required
                         />
                         <span class="input-group-help-tip" id="fifthParam4Tip">
@@ -1754,7 +1786,7 @@
               href="https://github.com/switchdv/nopixel-loot-splitter"
               >GitHub</a
             >
-            | <span class="text-footer-info">Discord</span>: Switch#8149
+            | <span class="text-footer-info">Discord</span>: Switch#9899
           </span>
         </div>
         <div class="row">
